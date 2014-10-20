@@ -1389,3 +1389,1151 @@ Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 19:48:42 -050
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 19:48:42 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 20:07:20 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+Completed 200 OK in 77ms (Views: 76.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 20:07:20 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 20:07:20 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 20:07:20 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 20:07:20 -0500
+
+
+Started GET "/login" for 127.0.0.1 at 2014-10-19 20:07:22 -0500
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 31ms (Views: 31.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-10-19 20:07:28 -0500
+Processing by SessionsController#set as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "email"=>"ryan.bahniuk@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6640ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"$query"=>{"email"=>"ryan.bahniuk@gmail.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5830ms
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 92ms
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 20:07:28 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6240ms
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 24ms (Views: 24.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 20:07:44 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6550ms
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 29ms (Views: 28.9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 20:07:44 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 20:07:44 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 20:07:44 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 20:07:44 -0500
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 20:09:59 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 20:25:07 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6600ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3800ms
+  Rendered layouts/_header.html.erb (30.9ms)
+Completed 200 OK in 138ms (Views: 137.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 20:25:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 20:25:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 20:25:07 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 20:25:07 -0500
+
+
+Started GET "/users/544441927279612641000000/edit" for 127.0.0.1 at 2014-10-19 20:25:10 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"544441927279612641000000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7190ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7930ms
+  Rendered users/edit.html.erb within layouts/application (17.8ms)
+Completed 500 Internal Server Error in 28ms
+
+ActionView::Template::Error (undefined method `user_path' for #<#<Class:0x00000102f12c48>:0x00000102f11d48>):
+    1: <h3>Edit User</h3>
+    2: 
+    3: <%= form_for @user do |f| %>
+    4:   <% if @user.errors.any? %>
+    5:   <div id="error_explanation">
+    6:     <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+  app/views/users/edit.html.erb:3:in `_app_views_users_edit_html_erb___1245952443797807900_2172175320'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.9ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 2.2010ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5900ms
+
+
+Started GET "/users/544441927279612641000000/edit" for 127.0.0.1 at 2014-10-19 20:30:56 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"544441927279612641000000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7790ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5030ms
+  Rendered users/edit.html.erb within layouts/application (2.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6820ms
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 96ms (Views: 86.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 20:30:56 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 20:30:56 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 20:30:56 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 20:30:56 -0500
+
+
+Started PATCH "/users/544441927279612641000000" for 127.0.0.1 at 2014-10-19 20:31:10 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "user"=>{"name"=>"Ryan", "email"=>"ryan.bahniuk@gmail.com"}, "commit"=>"Update User", "id"=>"544441927279612641000000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7540ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7600ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5960ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} update={"$set"=>{"name"=>"Ryan"}} flags=[]
+                         COMMAND      database=railroad_development command={:getlasterror=>1, :w=>1} runtime: 41.3620ms
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 51ms
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 20:31:10 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6220ms
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 29ms (Views: 28.8ms)
+
+
+Started GET "/users/544441927279612641000000/edit" for 127.0.0.1 at 2014-10-19 20:31:12 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"544441927279612641000000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6060ms
+  Rendered users/edit.html.erb within layouts/application (3.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5790ms
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 34ms (Views: 32.6ms)
+
+
+Started PATCH "/users/544441927279612641000000" for 127.0.0.1 at 2014-10-19 20:31:16 -0500
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "user"=>{"name"=>"Ryan Bahniuk", "email"=>"ryan.bahniuk@gmail.com"}, "commit"=>"Update User", "id"=>"544441927279612641000000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6980ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6290ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} update={"$set"=>{"name"=>"Ryan Bahniuk"}} flags=[]
+                         COMMAND      database=railroad_development command={:getlasterror=>1, :w=>1} runtime: 2.9130ms
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 10ms
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 20:31:16 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5190ms
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 28ms (Views: 27.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 20:36:12 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6700ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5640ms
+  Rendered layouts/_header.html.erb (11.0ms)
+Completed 200 OK in 84ms (Views: 83.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 20:36:12 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 20:36:12 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 20:36:12 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 20:36:12 -0500
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 20:36:14 -0500
+Processing by AdminController#index as HTML
+  Rendered admin/index.html.erb within layouts/application (0.7ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7480ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7990ms
+  Rendered layouts/_header.html.erb (4.5ms)
+Completed 200 OK in 39ms (Views: 39.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 20:50:45 -0500
+Processing by AdminController#index as HTML
+  Rendered admin/index.html.erb within layouts/application (0.9ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7270ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4980ms
+  Rendered layouts/_header.html.erb (10.3ms)
+Completed 200 OK in 33ms (Views: 33.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-10-19 20:50:49 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h3>New Post</h3>
+    2: 
+    3: <%= form_for @post do |f| %>
+    4:   <% if @post.errors.any? %>
+    5:   <div id="error_explanation">
+    6:     <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+  app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb___1108293469078950946_2163583720'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-10-19 20:51:06 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 74ms
+
+ActionView::Template::Error (undefined method `title' for #<Post _id: 54446a8b7279612843020000, type: nil>):
+    12:     </ul>
+    13:   </div>
+    14:   <% end %>
+    15:   <%= f.text_field :title, placeholder: 'Title' %>
+    16:   <%= f.text_area :body, placeholder: 'Body' %>
+    17:   <%= f.submit %>
+    18: <% end %>
+  app/views/posts/new.html.erb:15:in `block in _app_views_posts_new_html_erb___1108293469078950946_2163583720'
+  app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb___1108293469078950946_2163583720'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-10-19 20:52:15 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (21.8ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined method `body' for #<Post _id: 54446acf7279612843030000, title: nil>):
+    13:   </div>
+    14:   <% end %>
+    15:   <%= f.text_field :title, placeholder: 'Title' %>
+    16:   <%= f.text_area :body, placeholder: 'Body' %>
+    17:   <%= f.submit %>
+    18: <% end %>
+  app/views/posts/new.html.erb:16:in `block in _app_views_posts_new_html_erb___1108293469078950946_2163583720'
+  app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb___1108293469078950946_2163583720'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-10-19 20:53:30 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.7ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6650ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4060ms
+  Rendered layouts/_header.html.erb (10.0ms)
+Completed 200 OK in 43ms (Views: 36.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 20:53:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 20:53:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 20:53:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 20:53:30 -0500
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-10-19 21:05:13 -0500
+
+AbstractController::ActionNotFound (The action 'create' could not be found for PostsController):
+  actionpack (4.1.0) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-10-19 21:16:10 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "post"=>{"title"=>"First post", "body"=>"body"}, "commit"=>"Create Post"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6750ms
+  MOPED: 127.0.0.1:27017 INSERT       database=railroad_development collection=posts documents=[{"_id"=>BSON::ObjectId('5444706a7279612843040000'), "title"=>"First post", "body"=>"body"}] flags=[]
+                         COMMAND      database=railroad_development command={:getlasterror=>1, :w=>1} runtime: 21.3740ms
+Redirected to http://0.0.0.0:3000/admin
+Completed 302 Found in 31ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:16:10 -0500
+Processing by AdminController#index as HTML
+  Rendered admin/index.html.erb within layouts/application (0.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7770ms
+  Rendered layouts/_header.html.erb (9.5ms)
+Completed 200 OK in 73ms (Views: 72.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:19:25 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6870ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4310ms
+  Rendered admin/index.html.erb within layouts/application (4.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8630ms
+  Rendered layouts/_header.html.erb (74.5ms)
+Completed 200 OK in 109ms (Views: 101.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:19:26 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:19:26 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:19:26 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:19:26 -0500
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:19:49 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6360ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6040ms
+  Rendered admin/index.html.erb within layouts/application (4.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6050ms
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 35ms (Views: 35.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:19:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:19:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:19:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:19:50 -0500
+
+
+Started GET "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:19:53 -0500
+
+AbstractController::ActionNotFound (The action 'show' could not be found for PostsController):
+  actionpack (4.1.0) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:20:10 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6440ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3670ms
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 34ms (Views: 33.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:20:33 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: Welcome to Railroad.
+    2: 
+    3: <ul>
+    4: 	<% @posts.each do |post| %>
+    5: 	<li><%= link_to "#{post.title}", post %></li>
+    6: 	<% end %>
+    7: </ul>
+  app/views/welcome/index.html.erb:4:in `_app_views_welcome_index_html_erb___4388801077681282674_2199191740'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:20:44 -0500
+Processing by WelcomeController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6800ms
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8020ms
+  Rendered layouts/_header.html.erb (10.1ms)
+Completed 200 OK in 111ms (Views: 37.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:20:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:20:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:20:45 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:20:45 -0500
+
+
+Started GET "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:20:56 -0500
+
+AbstractController::ActionNotFound (The action 'show' could not be found for PostsController):
+  actionpack (4.1.0) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+
+
+Started GET "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:23:35 -0500
+
+AbstractController::ActionNotFound (The action 'show' could not be found for PostsController):
+  actionpack (4.1.0) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+
+
+Started GET "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:28:05 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.8310ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4330ms
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6960ms
+  Rendered layouts/_header.html.erb (11.1ms)
+Completed 200 OK in 44ms (Views: 34.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:28:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:28:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:28:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:28:05 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:28:10 -0500
+Processing by WelcomeController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7160ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4110ms
+  Rendered welcome/index.html.erb within layouts/application (3.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5490ms
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 30ms (Views: 29.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:28:13 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7210ms
+  Rendered admin/index.html.erb within layouts/application (2.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5260ms
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 34ms (Views: 34.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:30:04 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.8220ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 1.0510ms
+  Rendered admin/index.html.erb within layouts/application (20.2ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined local variable or method `edit_post' for #<#<Class:0x00000102f5bee8>:0x000001014f8650>):
+    4: 
+    5: <ul>
+    6: 	<% @posts.each do |post| %>
+    7: 	<li><%= link_to "#{post.title}", edit_post %></li>
+    8: 	<% end %>
+    9: </ul>
+  app/views/admin/index.html.erb:7:in `block in _app_views_admin_index_html_erb__1145057619097536688_2158499960'
+  app/views/admin/index.html.erb:6:in `_app_views_admin_index_html_erb__1145057619097536688_2158499960'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:30:11 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8290ms
+  Rendered admin/index.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"posts"} missing required keys: [:id]):
+    4: 
+    5: <ul>
+    6: 	<% @posts.each do |post| %>
+    7: 	<li><%= link_to "#{post.title}", edit_post_path %></li>
+    8: 	<% end %>
+    9: </ul>
+  app/views/admin/index.html.erb:7:in `block in _app_views_admin_index_html_erb__1145057619097536688_2199194400'
+  app/views/admin/index.html.erb:6:in `_app_views_admin_index_html_erb__1145057619097536688_2199194400'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:30:18 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7800ms
+  Rendered admin/index.html.erb within layouts/application (3.5ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6110ms
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 38ms (Views: 36.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:30:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:30:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:30:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:30:19 -0500
+
+
+Started GET "/posts/5444706a7279612843040000/edit" for 127.0.0.1 at 2014-10-19 21:30:21 -0500
+
+AbstractController::ActionNotFound (The action 'edit' could not be found for PostsController):
+  actionpack (4.1.0) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+
+
+Started GET "/posts/5444706a7279612843040000/edit" for 127.0.0.1 at 2014-10-19 21:34:32 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7150ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5200ms
+  Rendered posts/edit.html.erb within layouts/application (6.5ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6980ms
+  Rendered layouts/_header.html.erb (18.6ms)
+Completed 200 OK in 398ms (Views: 142.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:34:33 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:34:33 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:34:33 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:34:33 -0500
+
+
+Started PATCH "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:34:43 -0500
+
+AbstractController::ActionNotFound (The action 'update' could not be found for PostsController):
+  actionpack (4.1.0) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
+
+
+Started PATCH "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:36:56 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "post"=>{"title"=>"First post", "body"=>"body content here"}, "commit"=>"Update Post", "id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6700ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3930ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6760ms
+Redirected to http://0.0.0.0:3000/
+  MOPED: 127.0.0.1:27017 UPDATE       database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} update={"$set"=>{"body"=>"body content here"}} flags=[]
+                         COMMAND      database=railroad_development command={:getlasterror=>1, :w=>1} runtime: 0.8860ms
+Redirected to 
+Completed 500 Internal Server Error in 22ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/posts_controller.rb:29:in `update'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.3ms)
+
+
+Started PATCH "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:37:18 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "post"=>{"title"=>"First post", "body"=>"body content here"}, "commit"=>"Update Post", "id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6490ms
+Redirected to http://0.0.0.0:3000/admin
+Completed 302 Found in 12ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:37:18 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8320ms
+  Rendered admin/index.html.erb within layouts/application (2.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7330ms
+  Rendered layouts/_header.html.erb (8.7ms)
+Completed 200 OK in 48ms (Views: 47.4ms)
+
+
+Started GET "/posts/5444706a7279612843040000/edit" for 127.0.0.1 at 2014-10-19 21:37:20 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6630ms
+  Rendered posts/edit.html.erb within layouts/application (5.0ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8280ms
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 44ms (Views: 42.1ms)
+
+
+Started PATCH "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:37:29 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "post"=>{"title"=>"First post edited", "body"=>"body content here and it has been saved"}, "commit"=>"Update Post", "id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5470ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} update={"$set"=>{"title"=>"First post edited", "body"=>"body content here and it has been saved"}} flags=[]
+                         COMMAND      database=railroad_development command={:getlasterror=>1, :w=>1} runtime: 0.7340ms
+Redirected to http://0.0.0.0:3000/admin
+Completed 302 Found in 5ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:37:29 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6680ms
+  Rendered admin/index.html.erb within layouts/application (2.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7660ms
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 160ms (Views: 159.4ms)
+
+
+Started GET "/posts/5444706a7279612843040000/edit" for 127.0.0.1 at 2014-10-19 21:40:28 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.9170ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8370ms
+  Rendered posts/edit.html.erb within layouts/application (3.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6050ms
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 37ms (Views: 32.2ms)
+
+
+Started GET "/posts/5444706a7279612843040000/edit" for 127.0.0.1 at 2014-10-19 21:41:31 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.5930ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4160ms
+  Rendered posts/edit.html.erb within layouts/application (3.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6260ms
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 35ms (Views: 31.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:41:31 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:41:31 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:41:31 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:41:31 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:41:36 -0500
+
+
+Started DELETE "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:41:43 -0500
+
+AbstractController::ActionNotFound (The action 'destroy' could not be found for PostsController):
+  actionpack (4.1.0) lib/abstract_controller/base.rb:131:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ryanbahniuk/.rvm/rubies/ruby-2.0.0-p451/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ryanbahniuk/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.7ms)
+
+
+Started GET "/posts/5444706a7279612843040000/edit" for 127.0.0.1 at 2014-10-19 21:42:17 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6760ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.3740ms
+  Rendered posts/edit.html.erb within layouts/application (3.0ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7070ms
+  Rendered layouts/_header.html.erb (9.8ms)
+Completed 200 OK in 100ms (Views: 91.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:42:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:42:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:42:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:42:17 -0500
+
+
+Started DELETE "/posts/5444706a7279612843040000" for 127.0.0.1 at 2014-10-19 21:42:19 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "id"=>"5444706a7279612843040000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7150ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4900ms
+  MOPED: 127.0.0.1:27017 DELETE       database=railroad_development collection=posts selector={"_id"=>BSON::ObjectId('5444706a7279612843040000')} flags=[:remove_first]
+                         COMMAND      database=railroad_development command={:getlasterror=>1, :w=>1} runtime: 18.4450ms
+Redirected to http://0.0.0.0:3000/admin
+Completed 302 Found in 25ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:42:19 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6100ms
+  Rendered admin/index.html.erb within layouts/application (1.7ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6260ms
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 32ms (Views: 30.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2014-10-19 21:42:20 -0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5950ms
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 39ms (Views: 38.8ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2014-10-19 21:42:27 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "post"=>{"title"=>"Another Post", "body"=>"body"}, "commit"=>"Create Post"}
+  MOPED: 127.0.0.1:27017 INSERT       database=railroad_development collection=posts documents=[{"_id"=>BSON::ObjectId('544476937279612843050000'), "title"=>"Another Post", "body"=>"body"}] flags=[]
+                         COMMAND      database=railroad_development command={:getlasterror=>1, :w=>1} runtime: 0.8350ms
+Redirected to http://0.0.0.0:3000/admin
+Completed 302 Found in 3ms
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:42:27 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.9980ms
+  Rendered admin/index.html.erb within layouts/application (3.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 1.2350ms
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 46ms (Views: 45.3ms)
