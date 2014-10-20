@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #Login/logout functionality
   get '/login' => 'sessions#login', as: :login
   post '/login' => 'sessions#set'
-  get '/logout' => 'sessions#logout'
+  get '/logout' => 'sessions#logout', as: :logout
 
   #User routes
   get 'users/new' => 'users#new', as: :new_user

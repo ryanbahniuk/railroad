@@ -7,10 +7,9 @@
 
 	<% if logged_in? %>
 	<div class="welcome">Hello, <%= current_user.name %>!</div>
-	<a href="/admin"><div>Admin</div></a>
-	<a href="/users/<%= current_user.id.to_s %>/edit"><div>Edit User Info</div></a>
-	<a href="/logout"><div class="session logout">Logout</div></a>
+	<%= link_to "Admin", admin_path %>
+	<%= link_to "Logout", logout_path %>
 	<% else %>
-	<a href="/login"><div class="session login">Login</div></a>
+	<%= link_to "Login", login_path %>
 	<% end %>
 </header>

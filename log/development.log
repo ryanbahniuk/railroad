@@ -2537,3 +2537,116 @@ Processing by AdminController#index as HTML
   MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 1.2350ms
   Rendered layouts/_header.html.erb (3.5ms)
 Completed 200 OK in 46ms (Views: 45.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:49:32 -0500
+Processing by WelcomeController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6160ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4100ms
+  Rendered welcome/index.html.erb within layouts/application (3.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7280ms
+  Rendered layouts/_header.html.erb (4.0ms)
+Completed 200 OK in 98ms (Views: 97.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:51:11 -0500
+Processing by WelcomeController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.8600ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4610ms
+  Rendered welcome/index.html.erb within layouts/application (4.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6830ms
+  Rendered layouts/_header.html.erb (10.0ms)
+Completed 200 OK in 125ms (Views: 117.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:51:11 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:51:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:51:11 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:51:11 -0500
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-10-19 21:51:14 -0500
+Processing by SessionsController#logout as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:51:14 -0500
+Processing by WelcomeController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6620ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4060ms
+  Rendered welcome/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 29ms (Views: 28.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-10-19 21:51:17 -0500
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 44.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2014-10-19 21:51:24 -0500
+Processing by SessionsController#set as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p3yBk1psi19ve9Dwzd3XmbsX+b0nXkrjFvnh4cb0yCA=", "email"=>"ryan.bahniuk@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"$query"=>{"email"=>"ryan.bahniuk@gmail.com"}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8500ms
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 79ms
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:51:25 -0500
+Processing by WelcomeController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7410ms
+  Rendered welcome/index.html.erb within layouts/application (1.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5290ms
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 26ms (Views: 25.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-19 21:52:44 -0500
+Processing by WelcomeController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6880ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5140ms
+  Rendered welcome/index.html.erb within layouts/application (3.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7060ms
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 93ms (Views: 92.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-19 21:52:44 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-19 21:52:44 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-19 21:52:44 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-19 21:52:45 -0500
+
+
+Started GET "/admin" for 127.0.0.1 at 2014-10-19 21:52:46 -0500
+Processing by AdminController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.9960ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7550ms
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=posts selector={} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8370ms
+  Rendered admin/index.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 115ms (Views: 114.7ms)
+
+
+Started GET "/users/544441927279612641000000/edit" for 127.0.0.1 at 2014-10-19 21:52:57 -0500
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"544441927279612641000000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7310ms
+  Rendered users/edit.html.erb within layouts/application (4.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=railroad_development collection=users selector={"_id"=>BSON::ObjectId('544441927279612641000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.9820ms
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 36ms (Views: 33.3ms)
