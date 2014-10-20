@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit', as: :edit_user
   patch 'users/:id' => 'users#update'
 
+  get '/admin' => 'admin#index', as: :admin
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :posts
 
   # Example resource route with options:
   #   resources :products do
