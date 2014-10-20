@@ -1,4 +1,4 @@
-<h3>New User</h3>
+<h3>Edit User</h3>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
@@ -14,6 +14,5 @@
   <% end %>
   <%= f.text_field :name, placeholder: 'Name' %>
   <%= f.text_field :email, placeholder: 'Email' %>
-  <%= f.password_field :password, placeholder: 'Password' %>
   <%= f.submit %>
 <% end %>
