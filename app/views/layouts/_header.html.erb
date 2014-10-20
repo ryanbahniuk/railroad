@@ -1,0 +1,17 @@
+<header>
+	<nav>
+		<ul>
+			<li><%= link_to 'Home', root_url %></li>
+			<% if logged_in? %>
+			<a href="/users/<%= current_user.id %>"><li class="profile">Profile</li></a>
+			<% end %>
+		</ul>
+	</nav>
+
+	<% if logged_in? %>
+	<div class="welcome">Hello, <%= current_user.name %>!</div>
+	<a href="/logout"><div class="session logout">Logout</div></a>
+	<% else %>
+	<a href="/login"><div class="session login">Login</div></a>
+	<% end %>
+</header>
