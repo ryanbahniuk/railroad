@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	def new
+		@post_type = PostType.find(params[:id])
 		@post = Post.new
 	end
 
@@ -40,6 +41,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body)
+		params.require(:post).permit!
+		# params.require(:post).permit(:title, :body)
 	end
 end

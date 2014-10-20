@@ -1,9 +1,13 @@
 <h3>Admin Section</h3>
 <%= link_to "Edit User Profile", edit_user_path(current_user) %>
-<%= link_to "New Post", new_post_path %>
+<%= link_to "Edit User Profile", edit_user_path(current_user) %>
 
-<ul>
-	<% @posts.each do |post| %>
-	<li><%= link_to "#{post.title}", edit_post_path(post) %></li>
-	<% end %>
-</ul>
+<% @post_types.each do |post_type| %>
+	<h4><%= post_type.name.capitalize %></h4>
+	<%= link_to "New #{post_type.name.capitalize}", new_post_path + "?id=#{post_type.id.to_s}" %>
+	<ul>
+		<% @posts.where(type: post_type.id.to_s).each do |post| %>
+		<li><%= link_to "#{post.title}", edit_post_path(post) %></li>
+		<% end %>
+	</ul>
+<% end %>
