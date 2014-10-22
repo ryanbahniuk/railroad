@@ -1,0 +1,30 @@
+<h3>New Post Type</h3>
+<%= form_for @post_type do |f| %>
+  <% if @post_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post_type.errors.count, "error") %>
+        prohibited
+      this post_type from being saved:</h2>
+      <ul>
+        <% @post_type.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <input type="text" placeholder="Post Type Name" name="name">
+  <div id="post-type-template">
+    <div class="aspects-container">
+      <input type="text" placeholder="Field Title" name="aspects[][field]">
+      <select name="aspects[][type]">
+        <option value="text">Text</option>
+        <option value="textarea">Longform</option>
+        <option value="number">Number</option>
+        <option value="date">Date</option>
+        <option value="datetime">Date & Time</option>
+      </select>
+    </div>
+  </div>
+  <button class="add-aspect">Add Field</button>
+  <%= f.submit %>
+<% end %>

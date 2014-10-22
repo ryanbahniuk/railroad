@@ -1,6 +1,6 @@
 <h3>Admin Section</h3>
 <%= link_to "Edit User Profile", edit_user_path(current_user) %>
-<%= link_to "Edit User Profile", edit_user_path(current_user) %>
+<%= link_to "New Post Type", new_post_type_path %>
 
 <% @post_types.each do |post_type| %>
 	<h4><%= post_type.name.capitalize %></h4>
