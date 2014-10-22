@@ -1,7 +1,8 @@
-Welcome to Railroad.
-
-<ul>
-	<% @posts.each do |post| %>
-	<li><%= link_to "#{post.title}", post %></li>
-	<% end %>
-</ul>
+<div class="container">
+  Welcome to Railroad.
+  <ul>
+    <% @posts.each do |post| %>
+      <li><%= link_to "#{post.title}", post %></li>
+    <% end %>
+  </ul>
+</div>

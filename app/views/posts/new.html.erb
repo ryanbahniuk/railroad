@@ -1,18 +1,27 @@
-<h3>New Post</h3>
-
-<%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+<div class="container">
+  <h3>New
+    <%= @post_type.name.capitalize %></h3>
+  <%= form_for @post do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %>
+          prohibited
       this post from being saved:</h2>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
-  </div>
+    <%= f.hidden_field :type, value: @post_type.id.to_s %>
+    <% @post_type.aspects.each do |name, type| %>
+      <% if type != 'textarea' %>
+        <input type="<%= type %>" placeholder="<%= name.capitalize %>" name="post[<%= name %>]">
+      <% else %>
+        <textarea placeholder="<%= name.capitalize %>" name="post[<%= name %>]"></textarea>
+      <% end %>
+    <% end %>
+    <%= f.submit "New #{@post_type.name.capitalize}" %>
   <% end %>
-  <%= f.text_field :title, placeholder: 'Title' %>
-  <%= f.text_area :body, placeholder: 'Body' %>
-  <%= f.submit %>
-<% end %>
+</div>
