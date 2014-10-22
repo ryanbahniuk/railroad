@@ -1,0 +1,80 @@
+@import 'variables';
+@import 'mixins';
+
+///////////////General Styles///////////////
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: $container-width;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 1em;
+}
+
+///////////////Typography///////////////
+
+@font-face {
+    font-family: Entypo;
+    src: url('entypo.eot');
+    src: url('entypo.eot?#iefix') format('embedded-opentype'),
+         url('entypo.woff') format('woff'),
+         url('entypo.ttf') format('truetype'),
+         url('entypo.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+	font-family: $font-family-icon;
+}
+
+///////////////Interactive///////////////
+
+.hover-background-colored {
+	&:hover {
+		@include transition(0.4s);
+		background-color: $rr-brand;
+	}
+}
+
+.hover-text-colored {
+	&:hover {
+		@include transition(0.4s);
+		color: $rr-brand;
+	}
+}
+
+///////////////Alignment///////////////
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+///////////////Lists///////////////
+
+ul.no-style {
+	list-style: none;
+	padding-left: 0;
+}
+
+///////////////Links///////////////
+
+a.no-style {
+	text-decoration: none;
+	color: $font-color;
+}

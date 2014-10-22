@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+
+#logged-in-bar {
+	background-color: $rr-black;
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	left: 0;
+	top: 0;
+	z-index: 2147483647;
+	cursor: pointer;
+	&:hover {
+		@include transition(0.4s);
+		background-color: $rr-brand;
+	}
+	.rr-logo {
+		background-image: url(logo-square-white.png);
+		background-size: 50px 50px;
+		width: 50px;
+		height: 50px;
+	}
+}

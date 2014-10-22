@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'mixins';
+
+#admin-bar {
+	background-color: $rr-black;
+	color: #fff;
+	position: fixed;
+	height: 100%;
+	width: 250px;
+	top: 0;
+	left: 0;
+	.intro {
+		height: 50px;
+		padding: 15px 0 0 60px;
+	}
+	ul {
+		li {
+			padding: 15px 0 0 60px;
+			height: 50px;
+			position: relative;
+			.icon {
+				font-size: 1.8em;
+				position: absolute;
+				top: 8px;
+				left: 15px;
+			}
+		}
+	}
+	a {
+		text-decoration: none;
+		color: #fff;
+	}
+}
