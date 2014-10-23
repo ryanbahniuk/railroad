@@ -1,0 +1,7 @@
+<div id="admin-bar">
+  <%= link_to "<div class='intro'>Hello, <span class='hover-text-colored'>#{current_user.name}</span></div>".html_safe, edit_user_path(current_user) %>
+  <ul class="no-style">
+    <%= link_to '<li class="hover-background-colored"><span class="icon">&#8962;</span>Visit Site</li>'.html_safe, root_path %>
+    <%= link_to '<li class="hover-background-colored"><span class="icon">&#59154;</span>Logout</li>'.html_safe, logout_path %>
+  </ul>
+</div>
