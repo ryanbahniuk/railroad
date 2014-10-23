@@ -1,7 +1,10 @@
 <div id="admin-bar">
-  <%= link_to "<div class='intro'>Hello, <span class='hover-text-colored'>#{current_user.name}</span></div>".html_safe, edit_user_path(current_user) %>
+  <%= link_to "<div class='intro hover-background-colored'>Hello, #{current_user.name}</div>".html_safe, edit_user_path(current_user) %>
   <ul class="no-style">
     <%= link_to '<li class="hover-background-colored"><span class="icon">&#8962;</span>Visit Site</li>'.html_safe, root_path %>
-    <%= link_to '<li class="hover-background-colored"><span class="icon">&#59154;</span>Logout</li>'.html_safe, logout_path %>
+    <% @post_types.each do |post_type| %>
+      <%= link_to "<li class='hover-background-colored'><span class='icon'>&#9998;</span>#{post_type.name.capitalize.pluralize(2)}</li>".html_safe, new_post_path + "?id=#{post_type.id.to_s}" %>
+    <% end %>
+    <%= link_to '<li class="hover-background-colored"><span class="icon">&#59201;</span>Logout</li>'.html_safe, logout_path %>
   </ul>
 </div>
