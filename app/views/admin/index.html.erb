@@ -1,12 +1,10 @@
-<div class="admin-container">
-  <%= link_to "New Post Type", new_post_type_path %>
-  <% @post_types.each do |post_type| %>
-    <h4><%= post_type.name.capitalize %></h4>
-    <%= link_to "New #{post_type.name.capitalize}", new_post_path + "?id=#{post_type.id.to_s}" %>
-    <ul>
-      <% @posts.where(type: post_type.id.to_s).each do |post| %>
-        <li><%= link_to "#{post.title}", edit_post_path(post) %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<div id="admin-bar" ng-controller="AdminBarController">
+  <%= link_to "<div class='intro hover-background-colored'>Hello, #{current_user.name}</div>".html_safe, edit_user_path(current_user) %>
+  <ul class="no-style">
+    <%= link_to '<li class="hover-background-colored"><span class="icon">&#8962;</span>Visit Site</li>'.html_safe, root_path %>
+    <a href="" ng-repeat="post_type in post_types"><li class='hover-background-colored'><span class='icon'>&#9998;</span>{{ post_type.name | capitalize }}</li></a>
+    <%= link_to '<li class="hover-background-colored"><span class="icon">&#59201;</span>Logout</li>'.html_safe, logout_path %>
+  </ul>
+</div>
+<div class="admin-container" ng-view>
 </div>

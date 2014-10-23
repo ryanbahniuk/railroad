@@ -7,6 +7,16 @@ class AdminController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all
+		redirect_to login_path unless logged_in?
+	end
+
+	def posts
+		posts = Post.all
+		render json: posts
+	end
+
+	def post_types
+		post_types = PostType.all
+		render json: post_types
 	end
 end

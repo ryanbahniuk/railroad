@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
 		if @user && @user.authenticate(params[:password])
 			sign_in @user
-			redirect_to '/'
+			redirect_to admin_path
 		else
 			@user = User.new(username: params[:username])
 			@user.errors.add(:login, "Username or Password did not match.")

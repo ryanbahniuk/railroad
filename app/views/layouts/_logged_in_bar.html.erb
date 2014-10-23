@@ -1,3 +1,5 @@
-<div id="logged-in-bar">
-  <%= link_to '<div class="rr-logo"></div>'.html_safe, admin_path %>
-</div>
+<% if logged_in? %>
+  <div id="logged-in-bar">
+    <%= link_to '<div class="rr-logo"></div>'.html_safe, admin_path %>
+  </div>
+<% end %>
