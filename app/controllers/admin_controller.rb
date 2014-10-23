@@ -1,8 +1,12 @@
 class AdminController < ApplicationController
 	layout "admin"
+	before_filter :load_post_types
+
+	def load_post_types
+		@post_types = PostType.all
+	end
 
 	def index
-		@post_types = PostType.all
 		@posts = Post.all
 	end
 end
