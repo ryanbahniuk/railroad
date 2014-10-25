@@ -1,5 +1,5 @@
 function PostsController($scope, $location, $routeParams, Data) {
-	$scope.post_type_id = $routeParams.id
+	$scope.post_type_id = $routeParams.id;
 
 	$scope.posts = [{title: 'Loading posts...'}];
 	Data.getPosts().then(function(response){
