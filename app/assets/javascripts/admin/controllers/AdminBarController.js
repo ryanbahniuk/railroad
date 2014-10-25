@@ -1,11 +1,10 @@
-function AdminBarController($scope, $http) {
-	$scope.post_types = [{name: 'Loading menu...'}];
+function AdminBarController($scope, $http, $location, Data) {
+	$scope.post_types = [{name: 'Loading menu...', plural_name: 'Loading menu...'}];
+	Data.getPostTypes().then(function(response){
+    $scope.post_types = response.data;
+  });
 
-	var loadPostTypes = function() {
-	  $http.get('/admin/post_types')
-	  .success(function(data){
-	    $scope.post_types = data
-	  });
+  $scope.viewPosts = function(id){
+    $location.url('/posts/' + id);
 	}
-  loadPostTypes();
 }

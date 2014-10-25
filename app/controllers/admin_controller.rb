@@ -18,5 +18,15 @@ class AdminController < ApplicationController
 	def post_types
 		post_types = PostType.all
 		render json: post_types
+		# result = []
+		# PostType.all.each do |post_type|
+		# 	obj = {}
+		# 	obj["id"] = post_type.id.to_s
+		# 	obj["name"] = post_type.name
+		# 	obj["plural_name"] = post_type.name.pluralize(2)
+		# 	obj["aspects"] = post_type.aspects
+		# 	result << obj
+		# end
+		# render json: result
 	end
 end

@@ -2,7 +2,7 @@
   <%= link_to "<div class='intro hover-background-colored'>Hello, #{current_user.name}</div>".html_safe, edit_user_path(current_user) %>
   <ul class="no-style">
     <%= link_to '<li class="hover-background-colored"><span class="icon">&#8962;</span>Visit Site</li>'.html_safe, root_path %>
-    <a href="" ng-repeat="post_type in post_types"><li class='hover-background-colored'><span class='icon'>&#9998;</span>{{ post_type.name | capitalize }}</li></a>
+    <li ng-repeat="post_type in post_types" ng-click="viewPosts(post_type.id)" class='hover-background-colored'><span class='icon'>&#9998;</span>{{ post_type.plural_name | capitalize }}</li>
     <%= link_to '<li class="hover-background-colored"><span class="icon">&#59201;</span>Logout</li>'.html_safe, logout_path %>
   </ul>
 </div>
