@@ -1,13 +1,9 @@
-<h3>New</h3>
+<h3>New {{ post_type.name | capitalize }}</h3>
 <form accept-charset="UTF-8" action="/posts" class="new_post" id="new_post" method="post">
 	<input type="hidden" name="post[type]" value="{{ post_type_id }}">
 	<div class="input-container" ng-repeat="(name, type) in post_type.aspects">
 	<input ng-if="type !== 'textarea'" type="{{ type }}" placeholder="{{ name | capitalize }}" name="post[{{ name }}]">
 	<textarea ng-if="type === 'textarea'" placeholder="{{ name | capitalize }}" name="post[{{ name }}]"></textarea ng-if="type === 'textarea'">
 	</div>
-  <input type="submit">
+  <input type="submit" value="Create {{ post_type.name | capitalize }}">
 </form>
-
-
-
-<!-- <textarea placeholder="<%= name.capitalize %>" name="post[<%= name %>]"></textarea> -->
