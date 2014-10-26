@@ -1,6 +1,7 @@
-function IndexController($scope, $location, $http, Data) {
-	Data.getPosts().then(function(response){
-    $scope.posts = response.data;
+function IndexController($scope, $location, $http, Posts) {
+	$scope.posts = Posts.data;
+  Posts.load(function(){
+  	$scope.posts = Posts.data;
   });
 
 	$scope.viewPost = function(){

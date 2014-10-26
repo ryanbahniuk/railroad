@@ -1,35 +1,45 @@
 Admin = angular.module('Admin', ['ngRoute', 'textFilters'])
-Admin.factory('Data', function($http, $q){
-  return({
-    getPosts: getPosts,
-    getPostTypes: getPostTypes
-  });
 
-  function getPosts() {
-    return $http.get('/admin/posts');
-  }
-
-  function getPostTypes() {
-    return $http.get('/admin/post_types');
-  }
-
-  var postData = {
-    posts: [{title: 'Loading...'}],
+Admin.factory('PostTypes', function($http, $q){
+  var postTypeData = {
+    data: [{name: 'Loading...', plural_name: 'Loading...', aspects: {}}],
     isLoaded: false
   }
 
-  // postData.loadPosts = function(){
-  //   if (!postData.isLoaded) {
-  //     $http.get('/admin/posts').success(function(data){
-  //       postData.posts = data;
-  //       postData.isLoaded = true;
-  //     }).error(function(){
-  //       console.log("Loading posts failed.");
-  //     });
-  //   }
-  // }
+  postTypeData.load = function(callback){
+    if (!postTypeData.isLoaded) {
+      $http.get('/admin/post_types').success(function(data){
+        postTypeData.data = data;
+        postTypeData.isLoaded = true;
+        callback();
+      }).error(function(){
+        console.log("Loading post types failed.");
+      });
+    }
+  }
 
-  // return postData
+  return postTypeData
+});
+
+Admin.factory('Posts', function($http, $q){
+  var postData = {
+    data: [{id: '', title: 'Loading...', type: ''}],
+    isLoaded: false
+  }
+
+  postData.load = function(callback){
+    if (!postData.isLoaded) {
+      $http.get('/admin/posts').success(function(data){
+        postData.data = data;
+        postData.isLoaded = true;
+        callback();
+      }).error(function(){
+        console.log("Loading posts failed.");
+      });
+    }
+  }
+
+  return postData
 });
 
 Admin.factory('Methods', function(){
@@ -45,7 +55,7 @@ Admin.factory('Methods', function(){
   			return post_types[i]
   		}
   	}
-  	return {}
+  	return {name: 'Loading...', plural_name: 'Loading...', aspects: {}}
   }
 
   function findPosts(post_type_id, posts) {
@@ -55,9 +65,12 @@ Admin.factory('Methods', function(){
   }
 
   function findPost(post_id, posts) {
-  	return _.filter(posts, function(post){ 
-  		return post.id === post_id; 
-  	})[0];
+    for(var i = 0; i < posts.length; i++) {
+      if (posts[i].id === post_id) {
+        return posts[i]
+      }
+    }
+    return {id: '', title: 'Loading...', type: ''}
   }
 });
 

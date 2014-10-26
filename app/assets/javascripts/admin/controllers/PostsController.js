@@ -1,11 +1,10 @@
-function PostsController($scope, $location, $routeParams, Data, Methods) {
+function PostsController($scope, $location, $routeParams, Posts, Methods) {
 	$scope.post_type_id = $routeParams.typeId;
 	var findPosts = Methods.findPosts;
 
-	$scope.posts = [{title: 'Loading posts...'}];
-	Data.getPosts().then(function(response){
-    var allPosts = response.data;
-    $scope.posts = findPosts($scope.post_type_id, allPosts);
+  $scope.posts = findPosts($scope.post_type_id, Posts.data);
+  Posts.load(function(){    
+    $scope.posts = findPosts($scope.post_type_id, Posts.data);
   });
 
   $scope.viewPost = function(postId) {
