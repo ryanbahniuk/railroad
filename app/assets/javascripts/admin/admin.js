@@ -4,7 +4,11 @@ Admin.directive('ngFormInput', function($interpolate, $compile) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
-      var template = '<input ng-model="{{name}}" type="{{type}}" placeholder="{{name | capitalize}}" name="post[{{name}}]">';
+      if (scope.type !== 'textarea') {
+        var template = '<input ng-model="{{name}}" type="{{type}}" placeholder="{{name | capitalize}}" name="post[{{name}}]">';
+      } else {
+        var template = '<textarea ng-model="{{name}}" placeholder="{{name | capitalize}}" name="post[{{name}}]"></textarea>';
+      }
       var interpolated = $interpolate(template)(scope);
       var html = $(interpolated);
       element.replaceWith($compile(html)(scope));
