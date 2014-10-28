@@ -5,12 +5,12 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(post_params)
+		post = Post.new(post_params)
 
-		if @post.save
-			redirect_to admin_path
+		if post.save
+			render json: post
 		else
-			render 'new'
+			render json: {title: "Error!"}
 		end
 	end
 
@@ -23,19 +23,22 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@post = Post.find(params[:id])
-
-		if @post.update(post_params)
-			redirect_to admin_path
+		post = Post.find(params[:id])
+		post_params.delete("_id")
+		if post.update(post_params)
+			render json: post
 		else
-			render 'edit'
+			render json: {success: false}
 		end
 	end
 
 	def destroy
 		post = Post.find(params[:id])
-		post.destroy
-		redirect_to admin_path
+		if post.destroy
+			render json: {success: true, id: params[:id]}
+		else
+			render json: {success: false, id: params[:id]}
+		end
 	end
 
 	private

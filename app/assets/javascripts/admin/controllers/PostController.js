@@ -4,6 +4,8 @@ function PostController($scope, $location, $routeParams, Posts, PostTypes, Metho
 	var findPost = Methods.findPost;
 	var findPostType = Methods.findPostType;
 	var loadPostTypes = PostTypes.load;
+	$scope.updatePost = Posts.updatePost;
+	$scope.deletePost = Posts.deletePost;
 
   var allPosts = Posts.data;
   $scope.post = findPost($scope.post_id, allPosts);
@@ -18,7 +20,21 @@ function PostController($scope, $location, $routeParams, Posts, PostTypes, Metho
 	  });
  	});
 
-	$scope.viewAdmin = function(){
-    $location.url('/');
-	}
+ 	$scope.viewPosts = function(id){
+    $location.url('/posts/' + id);
+  }
+
+ 	$scope.update = function(e){
+    e.preventDefault();
+    $scope.updatePost($scope.post, function(){
+    	$scope.viewPosts($scope.post.type);
+    });
+  }
+
+  $scope.delete = function(e){
+    e.preventDefault();
+    $scope.deletePost($scope.post, function(){
+    	$scope.viewPosts($scope.post.type);
+    });
+  }
 }

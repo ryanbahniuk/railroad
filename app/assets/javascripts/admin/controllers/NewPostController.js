@@ -1,24 +1,25 @@
-function NewPostController($scope, $location, $routeParams, PostTypes, Methods) {
+function NewPostController($scope, $location, $routeParams, Posts, PostTypes, Methods) {
 	$scope.post_type_id = $routeParams.typeId;
+  $scope.post = {type: $scope.post_type_id};
 
-	var findPostType = Methods.findPostType;
+  var findPostType = Methods.findPostType;
+  $scope.createPost = Posts.createPost;
 
-	var allPostTypes = PostTypes.data;
-	$scope.post_type = findPostType($scope.post_type_id, allPostTypes);
+  var allPostTypes = PostTypes.data;
+  $scope.post_type = findPostType($scope.post_type_id, allPostTypes);
   PostTypes.load(function(){
-  	allPostTypes = PostTypes.data;
-		$scope.post_type = findPostType($scope.post_type_id, allPostTypes);
+    allPostTypes = PostTypes.data;
+    $scope.post_type = findPostType($scope.post_type_id, allPostTypes);
   });
 
-  $scope.input = function(name, type){
-  	if (type !== 'textarea') {
-  		return '<input ng-model="formData[' + name + ']" type="{{ type }}" placeholder="{{ name | capitalize }}" name="post[{{ name }}]">'
-  	} else {
-			return '<textarea ng-model="formData[' + name + ']" placeholder="{{ name | capitalize }}" name="post[{{ name }}]"></textarea>'
-  	}
+  $scope.viewPosts = function(id){
+    $location.url('/posts/' + id);
   }
 
-  $scope.createPost = function(){
-
+  $scope.create = function(e){
+    e.preventDefault();
+    $scope.createPost($scope.post, function(){
+      $scope.viewPosts($scope.post_type_id);
+    });
   }
 }

@@ -1,9 +1,8 @@
 <form accept-charset="UTF-8" action="/posts" class="new_post" id="new_post" method="put">
 	<input type="hidden" name="post[type]" value="{{ post_type.id }}">
 	<div class="input-container" ng-repeat="(name, type) in post_type.aspects">
-	<input ng-if="type !== 'textarea'" type="{{ type }}" placeholder="{{ name | capitalize }}" name="post[{{ name }}]" value="{{ post[name] }}">
-	<textarea ng-if="type === 'textarea'" placeholder="{{ name | capitalize }}" name="post[{{ name }}]">{{ post[name] }}</textarea ng-if="type === 'textarea'">
+		<div ng-form-input ng-name="{{ name }}" ng-type="{{ type }}"></div>
 	</div>
-  <input type="submit" value="Update {{ post_type.name | capitalize }}">
+  <button ng-click="update($event)">Update {{ post_type.name | capitalize }}</button>
+  <button ng-click="delete($event)">Delete {{ post_type.name | capitalize }}</button>
 </form>
-<a ng-click="viewAdmin()">Back to Home</a>

@@ -65,6 +65,8 @@ GEM
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     multi_json (1.10.1)
+    ngmin-rails (0.4.0)
+      rails (>= 3.1)
     optionable (0.2.0)
     origin (2.1.1)
     polyglot (0.3.5)
@@ -132,6 +134,7 @@ DEPENDENCIES
   jquery-rails
   mongoid (~> 4.0.0)
   moped (~> 2.0.1)
+  ngmin-rails (~> 0.4.0)
   rails (= 4.1.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

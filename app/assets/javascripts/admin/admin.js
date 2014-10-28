@@ -1,13 +1,13 @@
-Admin = angular.module('Admin', ['ngRoute', 'textFilters'])
+Admin = angular.module('Admin', ['ngRoute', 'textFilters']);
 
 Admin.directive('ngFormInput', function($interpolate, $compile) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
       if (scope.type !== 'textarea') {
-        var template = '<input ng-model="{{name}}" type="{{type}}" placeholder="{{name | capitalize}}" name="post[{{name}}]">';
+        var template = '<input ng-model="post.{{name}}" type="{{type}}" placeholder="{{name | capitalize}}" name="post[{{name}}]">';
       } else {
-        var template = '<textarea ng-model="{{name}}" placeholder="{{name | capitalize}}" name="post[{{name}}]"></textarea>';
+        var template = '<textarea ng-model="post.{{name}}" placeholder="{{name | capitalize}}" name="post[{{name}}]"></textarea>';
       }
       var interpolated = $interpolate(template)(scope);
       var html = $(interpolated);
@@ -62,9 +62,45 @@ Admin.factory('Posts', function($http, $q){
         postData.isLoaded = true;
         callback();
       }).error(function(){
-        console.log("Loading posts failed.");
+        console.log("Loading posts failed :-(");
       });
     }
+  }
+
+  postData.createPost = function(newPost, callback) {
+    $http.post('/posts', newPost).success(function(data){
+      postData.data.push(data);
+      callback();
+    }).error(function(){
+      console.log("Create post failed :-(");
+    });
+  }
+
+  postData.updatePost = function(post, callback) {
+    var url = '/posts/' + post.id;
+    $http({ method: 'PATCH', url: url, data: post})
+    .success(function(data){
+      callback();
+    })
+    .error(function(){
+      console.log("Update post failed :-(");
+    });
+  }
+
+  postData.deletePost = function(post, callback) {
+    var url = '/posts/' + post.id;
+    $http({ method: 'DELETE', url: url})
+    .success(function(data){
+      for(var i = 0; i < postData.data.length; i++) { 
+        if (postData.data[i].id === data.id) { 
+          postData.data.splice(i, 1)
+        } 
+      }
+      callback();
+    })
+    .error(function(){
+      console.log("Delete post failed :-(");
+    });
   }
 
   return postData
@@ -112,3 +148,10 @@ Admin.config(['$routeProvider',
 		$routeProvider.otherwise({ templateUrl: '/assets/index.html', controller: 'IndexController' } )
 	}
 ]);
+
+Admin.config(['$httpProvider',
+  function($httpProvider) {
+    authToken = $("meta[name=\"csrf-token\"]").attr("content")
+    $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
+  }
+]);  
