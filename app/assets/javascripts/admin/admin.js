@@ -1,5 +1,29 @@
 Admin = angular.module('Admin', ['ngRoute', 'textFilters'])
 
+Admin.directive('ngFormInput', function($interpolate, $compile) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      var template = '<input ng-model="{{name}}" type="{{type}}" placeholder="{{name | capitalize}}" name="post[{{name}}]">';
+      var interpolated = $interpolate(template)(scope);
+      var html = $(interpolated);
+      element.replaceWith($compile(html)(scope));
+    }
+  }
+});
+
+Admin.directive('ngName', function() {
+  return {
+    controller: function($scope) {}
+  }
+});
+
+Admin.directive('ngType', function() {
+  return {
+    controller: function($scope) {}
+  }
+});
+
 Admin.factory('PostTypes', function($http, $q){
   var postTypeData = {
     data: [{name: 'Loading...', plural_name: 'Loading...', aspects: {}}],

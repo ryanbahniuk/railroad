@@ -1,4 +1,3 @@
-counter = 0;
 angular.module('textFilters', []).filter('capitalize', function() {
 	return function(input) {
 		var words = input.split(" ");
