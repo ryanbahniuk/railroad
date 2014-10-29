@@ -1,5 +1,10 @@
 <h1>Settings</h1>
 <button ng-click="viewNewPostType()">New Post Type</button>
 <ul>
-	<li ng-repeat="type in post_types" ng-click="viewUpdatePostType(type)">{{type.name | capitalize}}</li>
+	<div ng-repeat="type in post_types">
+		<li ng-click="viewUpdatePostType(type)">
+			{{type.name | capitalize}}
+		</li>
+		<button ng-click="delete($event, type)">Delete</button>
+	</div>
 </ul>

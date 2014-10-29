@@ -30,6 +30,15 @@ class PostTypesController < ApplicationController
 		end
 	end
 
+	def destroy
+		post_type = PostType.find(params[:id])
+		if post_type.destroy
+			render json: {success: true, id: params[:id]}
+		else
+			render json: {success: false, id: params[:id]}
+		end
+	end
+
 	private
 
 	def post_type_params

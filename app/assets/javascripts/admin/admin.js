@@ -66,6 +66,22 @@ Admin.factory('PostTypes', function($http, $q){
     });
   }
 
+  postTypeData.deleteType = function(type, callback) {
+    var url = '/post_types/' + type.id;
+    $http({ method: 'DELETE', url: url})
+    .success(function(data){
+      for(var i = 0; i < postTypeData.data.length; i++) { 
+        if (postTypeData.data[i].id === data.id) { 
+          postTypeData.data.splice(i, 1)
+        } 
+      }
+      callback();
+    })
+    .error(function(){
+      console.log("Delete type failed :-(");
+    });
+  }
+
   return postTypeData
 });
 
