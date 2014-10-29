@@ -7,4 +7,8 @@ function AdminBarController($scope, $http, $location, PostTypes) {
   $scope.viewPosts = function(id){
     $location.url('/posts/' + id);
 	}
+
+	$scope.viewSettings = function(){
+    $location.url('/settings');
+	}
 }

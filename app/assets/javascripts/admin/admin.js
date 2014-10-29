@@ -46,6 +46,15 @@ Admin.factory('PostTypes', function($http, $q){
     }
   }
 
+  postTypeData.createType = function(newType, callback) {
+    $http.post('/post_types', newType).success(function(data){
+      postTypeData.data.push(data);
+      callback();
+    }).error(function(){
+      console.log("Create type failed :-(");
+    });
+  }
+
   return postTypeData
 });
 
@@ -140,10 +149,13 @@ Admin.factory('Methods', function(){
 
 Admin.config(['$routeProvider',
 	function($routeProvider) {
-		$routeProvider.when('/admin', { templateUrl: '/assets/index.html', controller: 'IndexController' } )
+    $routeProvider.when('/admin', { templateUrl: '/assets/index.html', controller: 'IndexController' } )
+		$routeProvider.when('/settings', { templateUrl: '/assets/settings.html', controller: 'SettingsController' } )
 		$routeProvider.when('/post/new', { templateUrl: '/assets/newPost.html', controller: 'NewPostController' } )
 		$routeProvider.when('/post/:id', { templateUrl: '/assets/post.html', controller: 'PostController' } )
-		$routeProvider.when('/posts/:typeId', { templateUrl: '/assets/posts.html', controller: 'PostsController' } )
+    $routeProvider.when('/posts/:typeId', { templateUrl: '/assets/posts.html', controller: 'PostsController' } )
+    $routeProvider.when('/type/new', { templateUrl: '/assets/newType.html', controller: 'NewTypeController' } )
+		$routeProvider.when('/type/:id', { templateUrl: '/assets/type.html', controller: 'TypeController' } )
 
 		$routeProvider.otherwise({ templateUrl: '/assets/index.html', controller: 'IndexController' } )
 	}

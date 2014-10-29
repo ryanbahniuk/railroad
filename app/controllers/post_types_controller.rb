@@ -5,11 +5,15 @@ class PostTypesController < ApplicationController
 
 	def create
 		fields = {}
-		post_type_params[:aspects].each do |aspect|
-			fields[aspect["field"].downcase] = aspect["type"]
+		post_type_params["aspects"].each do |aspect|
+			fields[aspect["name"].downcase] = aspect["type"]
 		end
-		PostType.create(name: post_type_params[:name].downcase, aspects: fields)
-		redirect_to admin_path
+		type = PostType.new(name: post_type_params["name"].downcase, aspects: fields)
+		if type.save
+			render json: type
+		else
+			render json: {success: false}
+		end
 	end
 
 	private
