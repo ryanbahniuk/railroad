@@ -55,6 +55,17 @@ Admin.factory('PostTypes', function($http, $q){
     });
   }
 
+  postTypeData.updateType = function(type, callback) {
+    var url = '/post_types/' + type.id;
+    $http({ method: 'PATCH', url: url, data: type})
+    .success(function(data){
+      callback();
+    })
+    .error(function(){
+      console.log("Update type failed :-(");
+    });
+  }
+
   return postTypeData
 });
 
@@ -119,7 +130,9 @@ Admin.factory('Methods', function(){
 	return({
 		findPostType: findPostType,
 		findPosts: findPosts,
-		findPost: findPost
+		findPost: findPost,
+    convertAspectsToArray: convertAspectsToArray,
+    convertAspectsToObject: convertAspectsToObject
 	});
   
   function findPostType(id, post_types) {
@@ -144,6 +157,31 @@ Admin.factory('Methods', function(){
       }
     }
     return {id: '', title: 'Loading...', type: ''}
+  }
+
+  function convertAspectsToArray(type) {
+    if (type.aspects.length === undefined) {
+      var result = [];
+      for (var key in type.aspects) { 
+        var obj = {};
+        obj.name = key;
+        obj.type = type.aspects[key];
+        result.push(obj); 
+      }
+      type.aspects = result;
+    }
+    return type
+  }
+
+  function convertAspectsToObject(type) {
+    if (typeof type.aspects.length === "number") {
+      var obj = {};
+      for (var i = 0; i < type.aspects.length; i++) {
+        obj[type.aspects[i].name] = type.aspects[i].type
+      }
+      type.aspects = obj;
+    }
+    return type
   }
 });
 
