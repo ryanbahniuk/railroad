@@ -70,6 +70,43 @@
 	float: right;
 }
 
+.center {
+	margin: 0 auto;
+}
+
+.margin-small {
+	margin: $margin-small;
+}
+
+.margin-medium {
+	margin: $margin-medium;
+}
+
+.margin-large {
+	margin: $margin-large;
+}
+
+.margin-top-small {
+	margin-top: $margin-small;
+}
+
+.margin-top-medium {
+	margin-top: $margin-medium;
+}
+
+.margin-top-large {
+	margin-top: $margin-large;
+}
+
+///////////////Images///////////////
+
+.logo {
+	background-image: url($logo-path);
+	background-size: 100px 100px;
+	width: 100px;
+	height: 100px;
+}
+
 ///////////////Lists///////////////
 
 ul.no-style {
