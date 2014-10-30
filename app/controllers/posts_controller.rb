@@ -1,8 +1,4 @@
 class PostsController < ApplicationController
-	def new
-		@post_type = PostType.find(params[:id])
-		@post = Post.new
-	end
 
 	def create
 		post = Post.new(post_params)
@@ -15,10 +11,6 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
-	end
-
-	def edit
 		@post = Post.find(params[:id])
 	end
 

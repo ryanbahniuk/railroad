@@ -1,7 +1,4 @@
 class PostTypesController < ApplicationController
-	def new
-		@post_type = PostType.new
-	end
 
 	def create
 		fields = {}
