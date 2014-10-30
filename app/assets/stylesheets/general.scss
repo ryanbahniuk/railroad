@@ -14,11 +14,6 @@
 	padding: 0 1em;
 }
 
-.admin-container {
-	margin-left: 250px;
-	padding: 0 1em;
-}
-
 ///////////////Typography///////////////
 
 @font-face {
@@ -34,6 +29,36 @@
 
 .icon {
 	font-family: $font-family-icon;
+}
+
+///////////////Mobile///////////////
+
+.mobile-menu-icon {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 3;
+	cursor: pointer;
+	display: none;
+	@media all and (max-width: $breakpoint-medium-max) {
+		display: block;
+  }
+  &:before {
+		position: absolute;
+		top: -20px;
+		font-family: $font-family-icon;
+		color: $rr-black;
+		font-size: 5em;
+		content: '\2630';
+  }
+	&:hover {
+		&:before {
+			@include transition(0.4s);
+			color: $rr-brand;
+		}
+	}
 }
 
 ///////////////Interactive///////////////

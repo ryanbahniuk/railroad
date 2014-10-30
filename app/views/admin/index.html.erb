@@ -1,4 +1,9 @@
 <div id="admin-bar" ng-controller="AdminBarController">
+  <% if logged_in? %>
+    <div id="logged-in-bar">
+      <%= link_to '<div class="rr-logo"></div>'.html_safe, admin_path %>
+    </div>
+  <% end %>
   <%= link_to "<div class='intro hover-background-colored'>Hello, #{current_user.name}</div>".html_safe, edit_user_path(current_user) %>
   <ul class="no-style">
     <%= link_to '<li class="hover-background-colored"><span class="icon">&#8962;</span>Visit Site</li>'.html_safe, root_path %>

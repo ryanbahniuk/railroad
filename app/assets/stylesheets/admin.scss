@@ -9,9 +9,15 @@
 	width: 250px;
 	top: 0;
 	left: 0;
+	#logged-in-bar {
+		position: static;
+		float: left;
+	}
 	.intro {
 		height: 50px;
-		padding: 15px 0 0 60px;
+		width: 200px;
+		display: inline-block;
+		padding: 18px 0 0 10px;
 	}
 	ul {
 		margin: 0;
@@ -32,4 +38,20 @@
 		text-decoration: none;
 		color: #fff;
 	}
+}
+
+.admin-container {
+	margin-left: 250px;
+	padding: 0 1em;
+	background-color: #fff;
+	@media all and (max-width: $breakpoint-medium-max) {
+		padding-top: 50px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 2;
+    margin-left: 0;
+  }
 }
