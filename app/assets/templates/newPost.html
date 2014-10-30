@@ -1,0 +1,8 @@
+<h3>New {{ post_type.name | capitalize }}</h3>
+<form accept-charset="UTF-8" action="/posts" class="new_post" id="new_post" method="post">
+	<input type="hidden" ng-model="post.type">
+	<div class="input-container" ng-repeat="(name, type) in post_type.aspects">
+		<div ng-form-input ng-name="{{ name }}" ng-type="{{ type }}"></div>
+	</div>
+  <button ng-click="create($event)">Create {{ post_type.name | capitalize }}</button>
+</form>

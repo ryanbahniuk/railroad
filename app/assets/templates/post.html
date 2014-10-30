@@ -1,0 +1,8 @@
+<form accept-charset="UTF-8" action="/posts" class="new_post" id="new_post" method="patch">
+	<input type="hidden" name="post[type]" value="{{ post_type.id }}">
+	<div class="input-container" ng-repeat="(name, type) in post_type.aspects">
+		<div ng-form-input ng-name="{{ name }}" ng-type="{{ type }}"></div>
+	</div>
+  <button ng-click="update($event)">Update {{ post_type.name | capitalize }}</button>
+  <button ng-click="delete($event)">Delete {{ post_type.name | capitalize }}</button>
+</form>

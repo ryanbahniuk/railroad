@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	def login
+		redirect_to admin_path if logged_in?
 		@user = User.new
 	end
 
@@ -12,12 +13,30 @@ class SessionsController < ApplicationController
 		@user = User.find_by(email: params[:email])
 
 		if @user && @user.authenticate(params[:password])
-			sign_in @user
-			redirect_to '/'
+			status = true
 		else
-			@user = User.new(username: params[:username])
-			@user.errors.add(:login, "Username or Password did not match.")
-			render :template => "sessions/login"
+			status = false
+		end
+
+		respond_to do |format|
+			format.js {
+				if status
+					sign_in @user
+					render json: admin_path.to_json
+				else
+					render json: false.to_json
+				end
+			}
+			format.html {
+				if status
+					sign_in @user
+					redirect_to admin_path
+				else
+					flash.now[:error] = "Email or password not found."
+					render :login
+				end
+			}
 		end
 	end
+
 end

@@ -14,10 +14,12 @@
 		padding: 15px 0 0 60px;
 	}
 	ul {
+		margin: 0;
 		li {
 			padding: 15px 0 0 60px;
 			height: 50px;
 			position: relative;
+			cursor: pointer;
 			.icon {
 				font-size: 1.8em;
 				position: absolute;

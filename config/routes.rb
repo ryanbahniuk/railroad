@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update'
 
   get '/admin' => 'admin#index', as: :admin
+  get '/admin/posts' => 'admin#posts'
+  get '/admin/post_types' => 'admin#post_types'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
