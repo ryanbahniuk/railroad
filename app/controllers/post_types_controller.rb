@@ -5,6 +5,7 @@ class PostTypesController < ApplicationController
 		post_type_params["aspects"].each do |aspect|
 			fields[aspect["name"].downcase] = aspect["type"]
 		end
+		fields["title"] = "text"
 		type = PostType.new(name: post_type_params["name"].downcase, aspects: fields)
 		if type.save
 			render json: type

@@ -19,6 +19,9 @@ function NewPostController($scope, $location, $routeParams, Posts, PostTypes, Me
     $location.url('/posts/' + id);
   }
 
+  $scope.fieldSortFunction = function(name) {
+  }
+
   $scope.create = function(e){
     e.preventDefault();
     $scope.createPost($scope.post, function(){

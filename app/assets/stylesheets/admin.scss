@@ -86,3 +86,22 @@
 		}
 	}
 }
+
+.admin-form {
+	input {
+		border: $border-standard;
+		font-size: 1.4em;
+		width: 100%;
+  	margin-top: 0.4em;
+  	height: 2.5em;
+  	padding: 0.2em;
+	}
+	textarea {
+		resize: none;
+		border: $border-standard;
+		width: 100%;
+		margin-top: 1.4em;
+		height: 20em;
+		padding: 0.2em;
+	}
+}
