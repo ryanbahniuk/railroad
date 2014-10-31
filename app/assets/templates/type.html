@@ -1,19 +1,20 @@
-<h3>Update Post Type</h3>
-<form accept-charset="UTF-8" class="new_post_type" id="new_post_type" method="patch">
+<h2 class="headline">Update Post Type</h2>
+<form accept-charset="UTF-8" class="update-post-type admin-form" method="patch">
   <input ng-model="type.name" type="text" placeholder="Post Type Name">
   <div id="post-type-template">
     <div ng-repeat="aspect in type.aspects" class="aspects-container">
       <input ng-model="aspect.name" type="text" placeholder="Field Title">
       <select ng-model="aspect.type">
+        <option selected disabled value="default">Input Type</option>
         <option value="text">Text</option>
         <option value="textarea">Longform</option>
         <option value="number">Number</option>
         <option value="date">Date</option>
         <option value="datetime">Date & Time</option>
       </select>
-      <button ng-click="removeAspect($event, aspect)">Remove Field</button>
+      <button class="remove-aspect delete" ng-click="removeAspect($event, aspect)">Remove Field</button>
     </div>
   </div>
   <button ng-click="addAspect($event)" class="add-aspect">Add Field</button>
-  <button ng-click="update($event)">Update Post Type</button>
+  <button class="submit" ng-click="update($event)">Update Post Type</button>
 </form>

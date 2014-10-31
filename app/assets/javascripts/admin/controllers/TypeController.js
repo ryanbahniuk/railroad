@@ -22,7 +22,7 @@ function TypeController($scope, $location, $routeParams, PostTypes, Methods) {
 
   $scope.addAspect = function(e){
     e.preventDefault();
-    var newAspect = {name: "", type: ""};
+    var newAspect = {name: "", type: "default"};
     $scope.type.aspects.push(newAspect);
   }
 

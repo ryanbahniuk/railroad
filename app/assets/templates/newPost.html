@@ -5,5 +5,5 @@
 	<div class="input-container" ng-repeat="(name, type) in post_type.aspects">
 		<div ng-form-input ng-if="name !== 'title'" ng-name="{{ name }}" ng-type="{{ type }}"></div>
 	</div>
-  <button ng-click="create($event)">Create {{ post_type.name | capitalize }}</button>
+  <button class="submit" ng-click="create($event)">Create {{ post_type.name | capitalize }}</button>
 </form>
