@@ -27,6 +27,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: Raleway;
+    src: url('raleway.eot');
+    src: url('raleway.eot?#iefix') format('embedded-opentype'),
+         url('raleway.woff') format('woff'),
+         url('raleway.ttf') format('truetype'),
+         url('raleway.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .icon {
 	font-family: $font-family-icon;
 }
@@ -144,4 +155,18 @@ ul.no-style {
 a.no-style {
 	text-decoration: none;
 	color: $font-color;
+}
+
+///////////////Buttons///////////////
+
+button {
+	background-color: $button-background-color;
+	color: $button-color;
+	height: $button-height;
+	padding: $button-padding;
+	border: $button-border;
+	&:hover {
+		@include transition(0.4s);
+		background-color: $button-background-color-hover;
+	}
 }

@@ -1,4 +1,9 @@
-<button ng-click="viewNew(post_type_id)">New</button>
-<ul>
-	<li ng-repeat="post in posts" ng-click="viewPost(post.id)">{{ post.title }}</li>
-</ul> 
+<h2 class="headline">{{ post_type.plural_name | capitalize }}</h2><button ng-click="viewNew(post_type_id)">New</button>
+<ul class="no-style post-list" ng-if="posts.length !== 0">
+	<li ng-repeat="post in posts">
+		<div ng-click="viewPost(post.id)">
+			{{ post.title }}
+		</div>
+		<button class="delete" ng-click="delete($event, post)">Delete</button>
+	</li>
+</ul>

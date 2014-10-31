@@ -21,6 +21,12 @@ $margin-large: 4em;
 ///////////////Colors///////////////
 $rr-black: #222;
 $rr-brand: #345ee8;
+$rr-red: #CC340B;
+
+$lighter-grey: #eee;
+$light-grey: #ddd;
+$grey: #999;
+$dark-grey: #555;
 
 ///////////////Typography///////////////
 
@@ -35,3 +41,11 @@ $border-radius: 5px;
 
 ///////////////Images///////////////
 $logo-path: 'logo-square.png';
+
+///////////////Buttons///////////////
+$button-background-color: $rr-black;
+$button-background-color-hover: $rr-brand;
+$button-border: 0;
+$button-color: #fff;
+$button-height: 50px;
+$button-padding: 1em;
