@@ -19,4 +19,9 @@ class AdminController < ApplicationController
 		post_types = PostType.all
 		render json: post_types
 	end
+
+	def users
+		users = User.all
+		render json: {current: current_user, all: users}
+	end
 end

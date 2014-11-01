@@ -1,0 +1,14 @@
+<h2 class="headline">Update User Profile</h2>
+<form accept-charset="UTF-8" action="/users" class="update-user admin-form" method="patch">
+	<div class="name-container">
+		<input class="input-name" ng-model="user.name" type="text" placeholder="Name">
+		<select ng-model="user.rights">
+	    <option selected disabled value="default">User Rights</option>
+	    <option value="admin">Admin</option>
+	    <option value="editor">Editor</option>
+	  </select>
+	</div>
+	<input class="input-email" ng-model="user.email" type="text" placeholder="Email">
+  <button class="submit" ng-click="update($event)">Save</button>
+  <button class="delete" ng-click="delete($event)">Delete Profile</button>
+</form>

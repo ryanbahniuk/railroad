@@ -142,11 +142,70 @@ Admin.factory('Posts', function($http, $q){
   return postData
 });
 
+Admin.factory('Users', function($http, $q){
+  var userData = {
+    data: {current: {name: "Loading..."}, all: [{name: "Loading..."}]},
+    isLoaded: false
+  }
+
+  userData.load = function(callback){
+    if (!userData.isLoaded) {
+      $http.get('/admin/users').success(function(data){
+        userData.data = data;
+        userData.isLoaded = true;
+        callback();
+      }).error(function(){
+        console.log("Loading users failed :-(");
+      });
+    }
+  }
+
+  userData.createUser = function(newUser, callback) {
+    debugger;
+    $http.post('/users', newUser).success(function(data){
+      userData.data.all.push(data);
+      callback();
+    }).error(function(){
+      console.log("Create user failed :-(");
+    });
+  }
+
+  userData.updateUser = function(user, callback) {
+    var url = '/users/' + user.id;
+    $http({ method: 'PATCH', url: url, data: user})
+    .success(function(data){
+      callback();
+    })
+    .error(function(){
+      console.log("Update user failed :-(");
+    });
+  }
+
+  userData.deleteUser = function(user, callback) {
+    var url = '/users/' + user.id;
+    $http({ method: 'DELETE', url: url})
+    .success(function(data){
+      for(var i = 0; i < userData.data.all.length; i++) { 
+        if (userData.data.all[i].id === data.id) { 
+          userData.data.all.splice(i, 1)
+        } 
+      }
+      callback();
+    })
+    .error(function(){
+      console.log("Delete user failed :-(");
+    });
+  }
+
+  return userData
+});
+
 Admin.factory('Methods', function(){
 	return({
 		findPostType: findPostType,
 		findPosts: findPosts,
 		findPost: findPost,
+    findUser: findUser,
     convertAspectsToArray: convertAspectsToArray,
     convertAspectsToObject: convertAspectsToObject
 	});
@@ -173,6 +232,15 @@ Admin.factory('Methods', function(){
       }
     }
     return {id: '', title: 'Loading...', type: ''}
+  }
+
+  function findUser(user_id, users) {
+    for(var i = 0; i < users.length; i++) {
+      if (users[i].id === user_id) {
+        return users[i]
+      }
+    }
+    return {id: '', name: 'Loading...'}
   }
 
   function convertAspectsToArray(type) {
@@ -209,7 +277,9 @@ Admin.config(['$routeProvider',
 		$routeProvider.when('/post/:id', { templateUrl: '/assets/post.html', controller: 'PostController' } )
     $routeProvider.when('/posts/:typeId', { templateUrl: '/assets/posts.html', controller: 'PostsController' } )
     $routeProvider.when('/type/new', { templateUrl: '/assets/newType.html', controller: 'NewTypeController' } )
-		$routeProvider.when('/type/:id', { templateUrl: '/assets/type.html', controller: 'TypeController' } )
+    $routeProvider.when('/type/:id', { templateUrl: '/assets/type.html', controller: 'TypeController' } )
+    $routeProvider.when('/user/new', { templateUrl: '/assets/newUser.html', controller: 'NewUserController' } )
+		$routeProvider.when('/user/:id', { templateUrl: '/assets/user.html', controller: 'UserController' } )
 
 		$routeProvider.otherwise({ templateUrl: '/assets/index.html', controller: 'IndexController' } )
 	}

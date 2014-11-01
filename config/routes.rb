@@ -16,10 +16,12 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   get 'users/:id/edit' => 'users#edit', as: :edit_user
   patch 'users/:id' => 'users#update'
+  delete 'users/:id' => 'users#destroy'
 
   get '/admin' => 'admin#index', as: :admin
   get '/admin/posts' => 'admin#posts'
   get '/admin/post_types' => 'admin#post_types'
+  get '/admin/users' => 'admin#users'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

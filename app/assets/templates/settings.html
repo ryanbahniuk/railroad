@@ -1,10 +1,22 @@
 <h2 class="headline">Settings</h2>
 <button ng-click="viewNewPostType()">New Post Type</button>
+<h3>Post Types</h3>
 <ul class="no-style post-list">
 	<li ng-repeat="type in post_types">
 		<div ng-click="viewUpdatePostType(type)">
 			{{type.name | capitalize}}
 		</div>
 		<button class="delete" ng-click="delete($event, type)">Delete</button>
+	</li>
+</ul>
+
+<h3>Users</h3>
+<button ng-click="viewNewUser()">New User</button>
+<ul class="no-style post-list">
+	<li ng-repeat="user in users">
+		<div ng-click="viewUpdateUser(user)">
+			{{user.name}}
+		</div>
+		<button class="delete" ng-click="deleteU($event, user)">Delete</button>
 	</li>
 </ul>

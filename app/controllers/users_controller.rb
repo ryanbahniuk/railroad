@@ -4,14 +4,11 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		redirect_to root_path if logged_in?
-		@user = User.new(new_user_params)
-
-		if @user.save
-			sign_in @user
-			redirect_to root_path
+		user = User.new(new_user_params)
+		if user.save
+			render json: user
 		else
-			render 'new'
+			render json: {title: "Error!"}
 		end
 	end
 
@@ -20,23 +17,32 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user = User.find(params[:id])
-		redirect_to root_path unless current_user.id == @user.id
+		user = User.find(params[:id])
+		update_user_params.delete("_id")
 
-		if @user.update(update_user_params)
-			redirect_to root_path
+		if user.update(update_user_params)
+			render json: user
 		else
-			render 'edit'
+			render json: {success: false}
+		end
+	end
+
+	def destroy
+		user = User.find(params[:id])
+		if user.destroy
+			render json: {success: true, id: params[:id]}
+		else
+			render json: {success: false, id: params[:id]}
 		end
 	end
 
 	private
 
 	def update_user_params
-		params.require(:user).permit(:name, :email)
+		params.require(:user).permit(:name, :email, :rights)
 	end
 
 	def new_user_params
-		params.require(:user).permit(:name, :email, :password)
+		params.require(:user).permit(:name, :email, :password, :rights)
 	end
 end

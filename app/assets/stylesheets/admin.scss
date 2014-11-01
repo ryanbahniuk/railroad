@@ -125,7 +125,7 @@ button.submit {
   	height: 50px;
   	padding: 0.45em 0.25em;
 	}
-	.aspects-container {
+	.aspects-container, .name-container {
 		height: 50px;
 		margin-top: 0.4em;
 		width: 100%;
@@ -133,6 +133,9 @@ button.submit {
 			margin: 0;
 			width: 70%;
 			float: left;
+			&.input-name {
+				width: 85%;
+			}
 		}
 		.remove-aspect {
 			margin: 0;
