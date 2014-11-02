@@ -5,6 +5,7 @@ function PostController($scope, $location, $routeParams, Posts, PostTypes, Metho
 	var findPostType = Methods.findPostType;
 	var loadPostTypes = PostTypes.load;
 	$scope.updatePost = Posts.updatePost;
+  $scope.switchStatus = Posts.switchStatus;
 	$scope.deletePost = Posts.deletePost;
 
   var allPosts = Posts.data;
@@ -28,6 +29,12 @@ function PostController($scope, $location, $routeParams, Posts, PostTypes, Metho
     e.preventDefault();
     $scope.updatePost($scope.post, function(){
     	$scope.viewPosts($scope.post.type);
+    });
+  }
+
+  $scope.switch = function(e){
+    e.preventDefault();
+    $scope.switchStatus($scope.post, function(){
     });
   }
 

@@ -1,13 +1,13 @@
-Admin = angular.module('Admin', ['ngRoute', 'textFilters']);
+Admin = angular.module('Admin', ['ngRoute', 'textFilters', 'statusFilters']);
 
 Admin.directive('ngFormInput', function($interpolate, $compile) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
       if (scope.type !== 'textarea') {
-        var template = '<input ng-model="post.{{name}}" type="{{type}}" placeholder="{{name | capitalize}}" name="post[{{name}}]">';
+        var template = '<input ng-model="post.{{name}}" type="{{type}}" placeholder="{{name | capitalize}}">';
       } else {
-        var template = '<textarea ng-model="post.{{name}}" placeholder="{{name | capitalize}}" name="post[{{name}}]"></textarea>';
+        var template = '<textarea ng-model="post.{{name}}" placeholder="{{name | capitalize}}"></textarea>';
       }
       var interpolated = $interpolate(template)(scope);
       var html = $(interpolated);
@@ -47,7 +47,7 @@ Admin.factory('PostTypes', function($http, $q){
   }
 
   postTypeData.createType = function(newType, callback) {
-    $http.post('/post_types', newType).success(function(data){
+    $http.post('/post_types', {post_type: newType}).success(function(data){
       postTypeData.data.push(data);
       callback();
     }).error(function(){
@@ -57,7 +57,7 @@ Admin.factory('PostTypes', function($http, $q){
 
   postTypeData.updateType = function(type, callback) {
     var url = '/post_types/' + type.id;
-    $http({ method: 'PATCH', url: url, data: type})
+    $http({ method: 'PATCH', url: url, data: {post_type: type}})
     .success(function(data){
       callback();
     })
@@ -103,8 +103,30 @@ Admin.factory('Posts', function($http, $q){
     }
   }
 
+  postData.switchStatus = function(post, callback) {
+    if (post.published === true) {
+      post.published = false
+    } else {
+      post.published = true
+    }
+
+    var url = '/posts/' + post.id; + '/status'
+    $http({ method: 'PATCH', url: url, data: {post: post}})
+    .success(function(data){
+      for(var i = 0; i < postData.data.length; i++) { 
+        if (postData.data[i].id === data.id) { 
+          postData.data[i] = data
+        } 
+      }
+      callback();
+    })
+    .error(function(){
+      console.log("Update published status failed :-(");
+    });
+  }
+
   postData.createPost = function(newPost, callback) {
-    $http.post('/posts', newPost).success(function(data){
+    $http.post('/posts', {post: newPost}).success(function(data){
       postData.data.push(data);
       callback();
     }).error(function(){
@@ -114,7 +136,7 @@ Admin.factory('Posts', function($http, $q){
 
   postData.updatePost = function(post, callback) {
     var url = '/posts/' + post.id;
-    $http({ method: 'PATCH', url: url, data: post})
+    $http({ method: 'PATCH', url: url, data: {post: post}})
     .success(function(data){
       callback();
     })
@@ -161,8 +183,7 @@ Admin.factory('Users', function($http, $q){
   }
 
   userData.createUser = function(newUser, callback) {
-    debugger;
-    $http.post('/users', newUser).success(function(data){
+    $http.post('/users', {user: newUser}).success(function(data){
       userData.data.all.push(data);
       callback();
     }).error(function(){
@@ -172,7 +193,7 @@ Admin.factory('Users', function($http, $q){
 
   userData.updateUser = function(user, callback) {
     var url = '/users/' + user.id;
-    $http({ method: 'PATCH', url: url, data: user})
+    $http({ method: 'PATCH', url: url, data: {user: user}})
     .success(function(data){
       callback();
     })

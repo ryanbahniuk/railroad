@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :posts
+  get '/posts/:id/status' => 'posts#switch'
   resources :post_types
 
   # Example resource route with options:

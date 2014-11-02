@@ -7,3 +7,9 @@ angular.module('textFilters', []).filter('capitalize', function() {
 		return words.join(" ")
 	};
 });
+
+angular.module('statusFilters', []).filter('published', function() {
+	return function(input) {
+		return input ? "Unpublish" : "Publish"
+	};
+});

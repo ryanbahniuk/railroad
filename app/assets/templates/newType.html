@@ -1,4 +1,4 @@
-<h2 class="headline">New Post Type</h2>
+<h2 class="headline inline-block">New Post Type</h2>
 <form accept-charset="UTF-8" action="/post_types" class="new-post-type admin-form" method="post">
   <input ng-model="type.name" type="text" placeholder="Post Type Name">
   <div class="included-field">Title Is Automatically Included</div>
@@ -17,5 +17,5 @@
     </div>
   </div>
   <button ng-click="addAspect($event)" class="add-aspect">Add Field</button>
-  <button class="submit" ng-click="create($event)">Create Post Type</button>
+  <button class="submit" ng-click="create($event)">Create</button>
 </form>

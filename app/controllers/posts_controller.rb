@@ -24,6 +24,15 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def switch
+		post = Post.find(params[:id])
+		if post.update(published: post_params["published"])
+			render json: post
+		else
+			render json: {success: false}
+		end
+	end
+
 	def destroy
 		post = Post.find(params[:id])
 		if post.destroy
