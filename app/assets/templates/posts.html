@@ -1,9 +1,10 @@
 <h2 class="headline inline-block">{{ post_type.plural_name | capitalize }}</h2><button ng-click="viewNew(post_type_id)">New</button>
 <ul class="no-style post-list" ng-if="posts.length !== 0">
 	<li ng-repeat="post in posts">
-		<div ng-click="viewPost(post.id)">
+		<div class="post-info" ng-click="viewPost(post.id)">
 			{{ post.title }}
 		</div>
+		<button class="switch" ng-click="switch($event, post)">{{ post.published | published }}</button>
 		<button class="delete" ng-click="delete($event, post)">Delete</button>
 	</li>
 </ul>

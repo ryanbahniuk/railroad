@@ -66,19 +66,21 @@
 	li {
 		height: 50px;
 		border-bottom: 2px solid $light-grey;
-		padding: 1em 1em;
 		cursor: pointer;
-		position: relative;
 		&:last-child {
 			border-bottom: 0;
 		}
 		&:nth-child(2) {
 			background-color: $lighter-grey;
 		}
-		button.delete {
-			position: absolute;
-			right: 0;
-			top: 0;
+		.post-info {
+			padding: 1em 1em;
+			width: 70%;
+			float: left;
+		}
+		button {
+			width: 15%;
+			float: left;
 		}
 	}
 }

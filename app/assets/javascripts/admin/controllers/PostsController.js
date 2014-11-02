@@ -3,6 +3,7 @@ function PostsController($scope, $location, $routeParams, Posts, PostTypes, Meth
   var findPosts = Methods.findPosts;
   var findPostType = Methods.findPostType;
 	var loadPostTypes = PostTypes.load;
+  $scope.switchStatus = Posts.switchStatus;
   $scope.deletePost = Posts.deletePost;
 
   $scope.posts = findPosts($scope.post_type_id, Posts.data);
@@ -20,6 +21,12 @@ function PostsController($scope, $location, $routeParams, Posts, PostTypes, Meth
     e.preventDefault();
     $scope.deletePost(post, function(){
       $scope.posts = findPosts($scope.post_type_id, Posts.data);
+    });
+  }
+
+  $scope.switch = function(e, post){
+    e.preventDefault();
+    $scope.switchStatus(post, function(){
     });
   }
 
