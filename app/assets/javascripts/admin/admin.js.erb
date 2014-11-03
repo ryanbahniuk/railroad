@@ -292,17 +292,17 @@ Admin.factory('Methods', function(){
 
 Admin.config(['$routeProvider',
 	function($routeProvider) {
-    $routeProvider.when('/admin', { templateUrl: '/assets/index.html', controller: 'IndexController' } )
-		$routeProvider.when('/settings', { templateUrl: '/assets/settings.html', controller: 'SettingsController' } )
-		$routeProvider.when('/post/new', { templateUrl: '/assets/newPost.html', controller: 'NewPostController' } )
-		$routeProvider.when('/post/:id', { templateUrl: '/assets/post.html', controller: 'PostController' } )
-    $routeProvider.when('/posts/:typeId', { templateUrl: '/assets/posts.html', controller: 'PostsController' } )
-    $routeProvider.when('/type/new', { templateUrl: '/assets/newType.html', controller: 'NewTypeController' } )
-    $routeProvider.when('/type/:id', { templateUrl: '/assets/type.html', controller: 'TypeController' } )
-    $routeProvider.when('/user/new', { templateUrl: '/assets/newUser.html', controller: 'NewUserController' } )
-		$routeProvider.when('/user/:id', { templateUrl: '/assets/user.html', controller: 'UserController' } )
+    $routeProvider.when('/admin', { templateUrl: "<%= asset_path('index.html') %>", controller: 'IndexController' } )
+		$routeProvider.when('/settings', { templateUrl: "<%= asset_path('settings.html') %>", controller: 'SettingsController' } )
+		$routeProvider.when('/post/new', { templateUrl: "<%= asset_path('newPost.html') %>", controller: 'NewPostController' } )
+		$routeProvider.when('/post/:id', { templateUrl: "<%= asset_path('post.html') %>", controller: 'PostController' } )
+    $routeProvider.when('/posts/:typeId', { templateUrl: "<%= asset_path('posts.html') %>", controller: 'PostsController' } )
+    $routeProvider.when('/type/new', { templateUrl: "<%= asset_path('newType.html') %>", controller: 'NewTypeController' } )
+    $routeProvider.when('/type/:id', { templateUrl: "<%= asset_path('type.html') %>", controller: 'TypeController' } )
+    $routeProvider.when('/user/new', { templateUrl: "<%= asset_path('newUser.html') %>", controller: 'NewUserController' } )
+		$routeProvider.when('/user/:id', { templateUrl: "<%= asset_path('user.html') %>", controller: 'UserController' } )
 
-		$routeProvider.otherwise({ templateUrl: '/assets/index.html', controller: 'IndexController' } )
+		$routeProvider.otherwise({ templateUrl: "<%= asset_path('index.html') %>", controller: 'IndexController' } )
 	}
 ]);
 
