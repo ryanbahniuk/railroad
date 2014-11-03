@@ -61,6 +61,15 @@
 	margin-right: $margin-small;
 }
 
+.search {
+	border: $border-standard;
+	font-size: 1.4em;
+	width: 100%;
+	margin-top: 0.4em;
+	height: 50px;
+	padding: 0.2em;
+}
+
 .post-list {
 	border: $border-standard;
 	li {
@@ -76,6 +85,11 @@
 		.post-info {
 			padding: 1em 1em;
 			width: 70%;
+			float: left;
+		}
+		.type-info {
+			padding: 1em 1em;
+			width: 85%;
 			float: left;
 		}
 		button {
