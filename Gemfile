@@ -24,7 +24,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Prevent minification on Angular dependencies
-gem 'ngmin-rails', '~> 0.4.0'
+# gem 'ngmin-rails', '~> 0.4.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
