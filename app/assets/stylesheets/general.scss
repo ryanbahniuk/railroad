@@ -145,7 +145,7 @@
 ///////////////Images///////////////
 
 .logo {
-	background-image: url($logo-path);
+	background-image: image-url($logo-path);
 	background-size: 100px 100px;
 	width: 100px;
 	height: 100px;
