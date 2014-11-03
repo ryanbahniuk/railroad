@@ -1,6 +1,6 @@
 Admin = angular.module('Admin', ['ngRoute', 'textFilters', 'statusFilters']);
 
-Admin.directive('ngFormInput', function($interpolate, $compile) {
+Admin.directive('ngFormInput', ['$interpolate', '$compile', function($interpolate, $compile) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
@@ -14,7 +14,7 @@ Admin.directive('ngFormInput', function($interpolate, $compile) {
       element.replaceWith($compile(html)(scope));
     }
   }
-});
+}]);
 
 Admin.directive('ngName', function() {
   return {
@@ -28,7 +28,7 @@ Admin.directive('ngType', function() {
   }
 });
 
-Admin.factory('PostTypes', function($http, $q){
+Admin.factory('PostTypes', ['$http', '$q', function($http, $q){
   var postTypeData = {
     data: [{name: 'Loading...', plural_name: 'Loading...', aspects: {}}],
     isLoaded: false
@@ -83,9 +83,9 @@ Admin.factory('PostTypes', function($http, $q){
   }
 
   return postTypeData
-});
+}]);
 
-Admin.factory('Posts', function($http, $q){
+Admin.factory('Posts', ['$http', '$q', function($http, $q){
   var postData = {
     data: [{id: '', title: 'Loading...', type: ''}],
     isLoaded: false
@@ -162,9 +162,9 @@ Admin.factory('Posts', function($http, $q){
   }
 
   return postData
-});
+}]);
 
-Admin.factory('Users', function($http, $q){
+Admin.factory('Users', ['$http', '$q', function($http, $q){
   var userData = {
     data: {current: {name: "Loading..."}, all: [{name: "Loading..."}]},
     isLoaded: false
@@ -219,7 +219,7 @@ Admin.factory('Users', function($http, $q){
   }
 
   return userData
-});
+}]);
 
 Admin.factory('Methods', function(){
 	return({

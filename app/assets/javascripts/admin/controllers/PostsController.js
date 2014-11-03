@@ -1,3 +1,4 @@
+PostsController.$inject = ['$scope', '$location', '$routeParams', 'Posts', 'PostTypes', 'Methods'];
 function PostsController($scope, $location, $routeParams, Posts, PostTypes, Methods) {
 	$scope.post_type_id = $routeParams.typeId;
   var findPosts = Methods.findPosts;

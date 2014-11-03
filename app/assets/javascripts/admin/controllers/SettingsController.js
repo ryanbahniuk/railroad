@@ -1,3 +1,4 @@
+SettingsController.$inject = ['$scope', '$location', 'PostTypes', 'Users'];
 function SettingsController($scope, $location, PostTypes, Users) {
 
   $scope.deleteType = PostTypes.deleteType;

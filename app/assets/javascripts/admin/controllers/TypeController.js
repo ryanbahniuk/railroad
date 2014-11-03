@@ -1,3 +1,4 @@
+TypeController.$inject = ['$scope', '$location', '$routeParams', 'PostTypes', 'Methods'];
 function TypeController($scope, $location, $routeParams, PostTypes, Methods) {
   $scope.post_type_id = $routeParams.id;
 

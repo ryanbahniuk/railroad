@@ -1,3 +1,4 @@
+IndexController.$inject = ['$scope', '$location', 'Posts'];
 function IndexController($scope, $location, Posts) {
 
 	$scope.switchStatus = Posts.switchStatus;

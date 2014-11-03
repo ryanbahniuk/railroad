@@ -1,3 +1,4 @@
+NewTypeController.$inject = ['$scope', '$location', 'PostTypes'];
 function NewTypeController($scope, $location, PostTypes) {
   $scope.createType = PostTypes.createType;
   $scope.type = {name: "", aspects: [{name: "", type: "default"}]};

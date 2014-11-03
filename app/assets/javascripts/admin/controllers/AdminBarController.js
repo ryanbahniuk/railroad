@@ -1,3 +1,4 @@
+AdminBarController.$inject = ['$scope', '$http', '$location', 'PostTypes'];
 function AdminBarController($scope, $http, $location, PostTypes) {
 	$scope.post_types = PostTypes.data;
   PostTypes.load(function(){

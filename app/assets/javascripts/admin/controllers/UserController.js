@@ -1,3 +1,4 @@
+UserController.$inject = ['$scope', '$location', '$routeParams', 'Users', 'Methods'];
 function UserController($scope, $location, $routeParams, Users, Methods) {
 
   $scope.updateUser = Users.updateUser;

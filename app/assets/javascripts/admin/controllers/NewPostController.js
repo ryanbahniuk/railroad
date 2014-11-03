@@ -1,3 +1,4 @@
+NewPostController.$inject = ['$scope', '$location', '$routeParams', 'Posts', 'PostTypes', 'Methods'];
 function NewPostController($scope, $location, $routeParams, Posts, PostTypes, Methods) {
 	$scope.post_type_id = $routeParams.typeId;
   $scope.post = {type: $scope.post_type_id};

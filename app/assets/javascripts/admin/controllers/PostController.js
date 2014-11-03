@@ -1,3 +1,4 @@
+PostController.$inject = ['$scope', '$location', '$routeParams', 'Posts', 'PostTypes', 'Methods'];
 function PostController($scope, $location, $routeParams, Posts, PostTypes, Methods) {
 	$scope.post_id = $routeParams.id;
 
