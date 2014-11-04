@@ -87,7 +87,7 @@ Admin.factory('PostTypes', ['$http', '$q', function($http, $q){
 
 Admin.factory('Posts', ['$http', '$q', function($http, $q){
   var postData = {
-    data: [{id: '', title: 'Loading...', type: ''}],
+    data: [{id: '', title: 'Loading...', type: '', author: {id: ''}}],
     isLoaded: false
   }
 
@@ -225,6 +225,7 @@ Admin.factory('Methods', function(){
 	return({
 		findPostType: findPostType,
 		findPosts: findPosts,
+    findPostsFromUser: findPostsFromUser,
 		findPost: findPost,
     findUser: findUser,
     convertAspectsToArray: convertAspectsToArray,
@@ -244,6 +245,12 @@ Admin.factory('Methods', function(){
   	return _.filter(posts, function(post){ 
   		return post.type === post_type_id; 
   	});
+  }
+
+  function findPostsFromUser(user_id, posts) {
+    return _.filter(posts, function(post){
+      return post.author.id === user_id; 
+    });
   }
 
   function findPost(post_id, posts) {
@@ -300,7 +307,8 @@ Admin.config(['$routeProvider',
     $routeProvider.when('/type/new', { templateUrl: "<%= asset_path('newType.html') %>", controller: 'NewTypeController' } )
     $routeProvider.when('/type/:id', { templateUrl: "<%= asset_path('type.html') %>", controller: 'TypeController' } )
     $routeProvider.when('/user/new', { templateUrl: "<%= asset_path('newUser.html') %>", controller: 'NewUserController' } )
-		$routeProvider.when('/user/:id/edit', { templateUrl: "<%= asset_path('editUser.html') %>", controller: 'EditUserController' } )
+    $routeProvider.when('/user/:id/edit', { templateUrl: "<%= asset_path('editUser.html') %>", controller: 'EditUserController' } )
+    $routeProvider.when('/user/:id', { templateUrl: "<%= asset_path('user.html') %>", controller: 'UserController' } )
 
 		$routeProvider.otherwise({ templateUrl: "<%= asset_path('index.html') %>", controller: 'IndexController' } )
 	}

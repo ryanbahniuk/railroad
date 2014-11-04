@@ -35,6 +35,10 @@ function PostsController($scope, $location, $routeParams, Posts, PostTypes, Meth
   	$location.url('/post/' + postId);
   }
 
+  $scope.viewUser = function(userId) {
+    $location.url('/user/' + userId);
+  }
+
   $scope.viewNew = function(postTypeId) {
   	$location.url('/post/new?typeId=' + postTypeId);
   }

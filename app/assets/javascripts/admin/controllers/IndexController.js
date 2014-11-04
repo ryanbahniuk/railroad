@@ -23,6 +23,10 @@ function IndexController($scope, $location, Posts) {
     });
   }
 
+  $scope.viewUser = function(userId) {
+    $location.url('/user/' + userId);
+  }
+
 	$scope.viewPost = function(postId) {
   	$location.url('/post/' + postId);
   }
