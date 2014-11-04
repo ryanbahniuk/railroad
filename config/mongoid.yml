@@ -5,6 +5,8 @@ production:
   sessions:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
+      username: admin
+      password: railroad
 
 development:
   # Configure available database sessions. (required)
