@@ -61,6 +61,12 @@
 	margin-right: $margin-small;
 }
 
+.admin-author {
+	width: 100%;
+	margin-top: 0.4em;
+	padding: 0.2em;
+}
+
 .search {
 	border: $border-standard;
 	font-size: 1.4em;
@@ -84,16 +90,36 @@
 		}
 		.post-info {
 			padding: 1em 1em;
-			width: 70%;
+			width: 50%;
 			float: left;
+			height: 100%;
+			overflow: hidden;
+		}
+		.post-author {
+			padding: 1em 1em;
+			width: 20%;
+			height: 100%;
+			overflow: hidden;
+			float: left;
+			text-align: center;
+			border-left: 2px solid $light-grey;
+		}
+		.post-date {
+			padding: 1em 1em;
+			width: 10%;
+			height: 100%;
+			overflow: hidden;
+			float: left;
+			text-align: center;
+			border-left: 2px solid $light-grey;
 		}
 		.type-info {
 			padding: 1em 1em;
-			width: 85%;
+			width: 90%;
 			float: left;
 		}
 		button {
-			width: 15%;
+			width: 10%;
 			float: left;
 		}
 	}
@@ -127,7 +153,7 @@ button.submit {
 		resize: none;
 		border: $border-standard;
 		width: 100%;
-		margin-top: 1.4em;
+		margin-top: 0.4em;
 		height: 20em;
 		padding: 0.2em;
 	}

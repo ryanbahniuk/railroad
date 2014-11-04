@@ -1,5 +1,6 @@
 class PostType
 	include Mongoid::Document
+	include Mongoid::Timestamps
 	field :name, type: String
 	field :plural_name, type: String
 	field :aspects, type: Hash, default: {}

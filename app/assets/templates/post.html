@@ -2,6 +2,7 @@
 <form accept-charset="UTF-8" action="/posts" class="update-post admin-form" method="patch">
 	<input type="hidden" value="{{ post_type.id }}">
 	<input class="input-title" ng-model="post.title" type="text" placeholder="Title">
+	<div class="admin-author">Posted by {{ post.author.name }} on {{ post.created_at | date:'shortDate' }}</div>
 	<div class="input-container" ng-repeat="(name, type) in post_type.aspects">
 		<div ng-form-input ng-if="name !== 'title'" ng-name="{{ name }}" ng-type="{{ type }}"></div>
 	</div>

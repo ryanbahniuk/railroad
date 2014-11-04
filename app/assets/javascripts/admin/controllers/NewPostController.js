@@ -1,5 +1,5 @@
-NewPostController.$inject = ['$scope', '$location', '$routeParams', 'Posts', 'PostTypes', 'Methods'];
-function NewPostController($scope, $location, $routeParams, Posts, PostTypes, Methods) {
+NewPostController.$inject = ['$scope', '$location', '$routeParams', 'Posts', 'PostTypes', 'Users', 'Methods'];
+function NewPostController($scope, $location, $routeParams, Posts, PostTypes, Users, Methods) {
 	$scope.post_type_id = $routeParams.typeId;
   $scope.post = {type: $scope.post_type_id};
 
@@ -16,12 +16,19 @@ function NewPostController($scope, $location, $routeParams, Posts, PostTypes, Me
     $scope.post_type = convertAspectsToObject($scope.post_type);
   });
 
+  $scope.current_user = Users.data.current;
+  Users.load(function(){
+    $scope.current_user = Users.data.current;
+  });
+
   $scope.viewPosts = function(id){
     $location.url('/posts/' + id);
   }
 
   $scope.create = function(e){
     e.preventDefault();
+    debugger;
+    $scope.post.author = $scope.current_user;
     $scope.createPost($scope.post, function(){
       $scope.viewPosts($scope.post_type_id);
     });
