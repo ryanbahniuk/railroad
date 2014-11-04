@@ -1,5 +1,5 @@
-UserController.$inject = ['$scope', '$location', '$routeParams', 'Users', 'Methods'];
-function UserController($scope, $location, $routeParams, Users, Methods) {
+EditUserController.$inject = ['$scope', '$location', '$routeParams', 'Users', 'Methods'];
+function EditUserController($scope, $location, $routeParams, Users, Methods) {
 
   $scope.updateUser = Users.updateUser;
   $scope.deleteUser = Users.deleteUser;

@@ -29,7 +29,7 @@ function SettingsController($scope, $location, PostTypes, Users) {
   }
 
   $scope.viewUpdateUser = function(user){
-    $location.url('/user/' + user.id);
+    $location.url('/user/' + user.id + '/edit');
   }
 
 	$scope.delete = function(e, type){

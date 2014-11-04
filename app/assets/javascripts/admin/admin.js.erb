@@ -300,7 +300,7 @@ Admin.config(['$routeProvider',
     $routeProvider.when('/type/new', { templateUrl: "<%= asset_path('newType.html') %>", controller: 'NewTypeController' } )
     $routeProvider.when('/type/:id', { templateUrl: "<%= asset_path('type.html') %>", controller: 'TypeController' } )
     $routeProvider.when('/user/new', { templateUrl: "<%= asset_path('newUser.html') %>", controller: 'NewUserController' } )
-		$routeProvider.when('/user/:id', { templateUrl: "<%= asset_path('user.html') %>", controller: 'UserController' } )
+		$routeProvider.when('/user/:id/edit', { templateUrl: "<%= asset_path('editUser.html') %>", controller: 'EditUserController' } )
 
 		$routeProvider.otherwise({ templateUrl: "<%= asset_path('index.html') %>", controller: 'IndexController' } )
 	}
