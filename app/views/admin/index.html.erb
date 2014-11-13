@@ -8,6 +8,7 @@
   <ul class="no-style">
     <%= link_to '<li class="hover-background-colored"><span class="icon">&#8962;</span>Visit Site</li>'.html_safe, root_path %>
     <li ng-repeat="post_type in post_types" ng-click="viewPosts(post_type.id)" class='hover-background-colored'><span class='icon'>&#9998;</span>{{ post_type.plural_name | capitalize }}</li>
+    <li ng-click="viewMedia()" class='hover-background-colored'><span class='icon'>&#128193;</span>Media</li>
     <li ng-click="viewSettings()" class='hover-background-colored'><span class='icon'>&#9881;</span>Settings</li>
     <%= link_to '<li class="hover-background-colored"><span class="icon">&#59201;</span>Logout</li>'.html_safe, logout_path %>
   </ul>

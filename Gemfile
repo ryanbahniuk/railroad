@@ -10,6 +10,7 @@ gem 'rails_12factor', group: :production
 gem 'bson'
 gem 'moped', '~> 2.0.1'
 gem 'mongoid', '~> 4.0.0'
+gem 'carrierwave'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

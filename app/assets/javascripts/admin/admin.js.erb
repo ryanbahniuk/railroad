@@ -7,7 +7,7 @@ Admin.directive('ngFormInput', ['$interpolate', '$compile', function($interpolat
       if (scope.type !== 'textarea') {
         var template = '<input ng-model="post.{{name}}" type="{{type}}" placeholder="{{name | capitalize}}">';
       } else {
-        var template = '<textarea ng-model="post.{{name}}" placeholder="{{name | capitalize}}"></textarea>';
+        var template ='<textarea class="editor" ng-model="post.{{name}}" placeholder="{{name | capitalize}}"></textarea>';
       }
       var interpolated = $interpolate(template)(scope);
       var html = $(interpolated);
@@ -164,6 +164,63 @@ Admin.factory('Posts', ['$http', '$q', function($http, $q){
   return postData
 }]);
 
+Admin.factory('Images', ['$http', function($http){
+  var imageData = {
+    data: [{id: '', title: 'Loading...', caption: ''}],
+    isLoaded: false
+  }
+
+  imageData.load = function(callback){
+    if (!imageData.isLoaded) {
+      $http.get('/admin/images').success(function(data){
+        postData.data = data;
+        postData.isLoaded = true;
+        callback();
+      }).error(function(){
+        console.log("Loading images failed :-(");
+      });
+    }
+  }
+
+  imageData.createImage = function(newImage, callback) {
+    $http.post('/images', {post: newImage}).success(function(data){
+      imageData.data.push(data);
+      callback();
+    }).error(function(){
+      console.log("Create image failed :-(");
+    });
+  }
+
+  imageData.updateImage = function(image, callback) {
+    var url = '/images/' + image.id;
+    $http({ method: 'PATCH', url: url, data: {image: image}})
+    .success(function(data){
+      callback();
+    })
+    .error(function(){
+      console.log("Update image failed :-(");
+    });
+  }
+
+  imageData.deleteImage = function(image, callback) {
+    var url = '/images/' + image.id;
+    $http({ method: 'DELETE', url: url})
+    .success(function(data){
+      for(var i = 0; i < imageData.data.length; i++) { 
+        if (imageData.data[i].id === data.id) { 
+          imageData.data.splice(i, 1)
+        } 
+      }
+      callback();
+    })
+    .error(function(){
+      console.log("Delete image failed :-(");
+    });
+  }
+
+  return imageData
+}]);
+
 Admin.factory('Users', ['$http', '$q', function($http, $q){
   var userData = {
     data: {current: {name: "Loading..."}, all: [{name: "Loading..."}]},
@@ -300,7 +357,8 @@ Admin.factory('Methods', function(){
 Admin.config(['$routeProvider',
 	function($routeProvider) {
     $routeProvider.when('/admin', { templateUrl: "<%= asset_path('index.html') %>", controller: 'IndexController' } )
-		$routeProvider.when('/settings', { templateUrl: "<%= asset_path('settings.html') %>", controller: 'SettingsController' } )
+    $routeProvider.when('/settings', { templateUrl: "<%= asset_path('settings.html') %>", controller: 'SettingsController' } )
+		$routeProvider.when('/media', { templateUrl: "<%= asset_path('media.html') %>", controller: 'MediaController' } )
 		$routeProvider.when('/post/new', { templateUrl: "<%= asset_path('newPost.html') %>", controller: 'NewPostController' } )
 		$routeProvider.when('/post/:id', { templateUrl: "<%= asset_path('post.html') %>", controller: 'PostController' } )
     $routeProvider.when('/posts/:typeId', { templateUrl: "<%= asset_path('posts.html') %>", controller: 'PostsController' } )
@@ -309,6 +367,7 @@ Admin.config(['$routeProvider',
     $routeProvider.when('/user/new', { templateUrl: "<%= asset_path('newUser.html') %>", controller: 'NewUserController' } )
     $routeProvider.when('/user/:id/edit', { templateUrl: "<%= asset_path('editUser.html') %>", controller: 'EditUserController' } )
     $routeProvider.when('/user/:id', { templateUrl: "<%= asset_path('user.html') %>", controller: 'UserController' } )
+    $routeProvider.when('/image/new', { templateUrl: "<%= asset_path('newImage.html') %>", controller: 'NewImageController' } )
 
 		$routeProvider.otherwise({ templateUrl: "<%= asset_path('index.html') %>", controller: 'IndexController' } )
 	}

@@ -27,7 +27,6 @@ function NewPostController($scope, $location, $routeParams, Posts, PostTypes, Us
 
   $scope.create = function(e){
     e.preventDefault();
-    debugger;
     $scope.post.author = $scope.current_user;
     $scope.createPost($scope.post, function(){
       $scope.viewPosts($scope.post_type_id);

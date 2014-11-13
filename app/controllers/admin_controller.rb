@@ -15,6 +15,11 @@ class AdminController < ApplicationController
 		render json: posts
 	end
 
+	def images
+		images = Image.all
+		render json: images
+	end
+
 	def post_types
 		post_types = PostType.all
 		render json: post_types

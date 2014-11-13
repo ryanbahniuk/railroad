@@ -1,0 +1,7 @@
+<h2 class="headline inline-block">New Image</h2>
+<form accept-charset="UTF-8" action="/images" class="new-image admin-form" method="post">
+	<input class="input-title" ng-model="image.title" type="text" placeholder="Title">
+	<input class="input-caption" ng-model="image.caption" type="text" placeholder="Caption">
+	<input class="input-file" ng-model="image.file" type="file">
+  <button class="submit" ng-click="create($event)">Upload Image</button>
+</form>

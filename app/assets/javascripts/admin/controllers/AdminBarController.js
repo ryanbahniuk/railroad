@@ -12,4 +12,8 @@ function AdminBarController($scope, $http, $location, PostTypes) {
 	$scope.viewSettings = function(){
     $location.url('/settings');
 	}
+
+  $scope.viewMedia = function(){
+    $location.url('/media');
+  }
 }

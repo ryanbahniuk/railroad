@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/admin/posts' => 'admin#posts'
   get '/admin/post_types' => 'admin#post_types'
   get '/admin/users' => 'admin#users'
+  get '/admin/images' => 'admin#images'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
