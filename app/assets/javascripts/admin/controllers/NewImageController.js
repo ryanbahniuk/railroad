@@ -16,6 +16,7 @@ function NewImageController($scope, $location, Users, Images) {
   $scope.create = function(e){
     e.preventDefault();
     $scope.image.author = $scope.current_user;
+    
     $scope.createImage($scope.image, function(){
       $scope.viewMedia();
     });

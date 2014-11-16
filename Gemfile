@@ -11,6 +11,8 @@ gem 'bson'
 gem 'moped', '~> 2.0.1'
 gem 'mongoid', '~> 4.0.0'
 gem 'carrierwave'
+gem 'carrierwave-mongoid'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

@@ -183,7 +183,7 @@ Admin.factory('Images', ['$http', function($http){
   }
 
   imageData.createImage = function(newImage, callback) {
-    $http.post('/images', {post: newImage}).success(function(data){
+    $http.post('/images', {image: newImage}).success(function(data){
       imageData.data.push(data);
       callback();
     }).error(function(){

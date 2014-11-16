@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :posts
   get '/posts/:id/status' => 'posts#switch'
   resources :post_types
+  resources :images
 
   # Example resource route with options:
   #   resources :products do
